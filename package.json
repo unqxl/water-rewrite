@@ -8,6 +8,7 @@
     "build": "tsc -p tsconfig.json",
     "deps": "cd src/scripts && ts-node prepare.ts",
     "start": "cd src && ts-node index.ts",
+    "start:prod": "yarn build && cd dist && node index.js",
     "postinstall": "is-ci || husky install"
   },
   "dependencies": {

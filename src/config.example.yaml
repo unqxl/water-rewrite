@@ -1,0 +1,3 @@
+bot:
+  token: "token" # Discord Bot Token
+  owners: [] # Discord User IDs of bot owners
