@@ -7,12 +7,14 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "deps": "ncu -u",
-    "start": "cd src && ts-node src/index.ts",
+    "start": "cd src && ts-node index.ts",
     "postinstall": "is-ci || husky install"
   },
   "dependencies": {
+    "@discordjs/builders": "^0.16.0-dev.1657411897-f0b68d5",
     "bufferutil": "^4.0.6",
     "deep-object-diff": "^1.1.7",
+    "discord-rpc": "^4.0.1",
     "discord.js": "^14.0.0-dev.1657411900-f0b68d5",
     "glob": "^8.0.3",
     "module-alias": "^2.2.2",
@@ -28,6 +30,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-angular": "^17.0.3",
+    "@types/discord-rpc": "^4.0.3",
     "@types/glob": "^7.2.0",
     "husky": "^8.0.1",
     "is-ci": "^3.0.1"

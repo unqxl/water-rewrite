@@ -1,17 +1,11 @@
 import {
-  ApplicationCommandOptionData,
-  LocalizationMap,
   PermissionsString,
+  RESTPostAPIApplicationCommandsJSONBody,
 } from "discord.js";
 
 export interface CommandData {
-  name: string;
+  data: RESTPostAPIApplicationCommandsJSONBody;
 
-  description: string;
-  descriptionLocalized?: LocalizationMap;
-
-  options: ApplicationCommandOptionData[];
-
-  clientPermissions: PermissionsString[];
-  memberPermissions: PermissionsString[];
+  clientPermissions?: PermissionsString[];
+  memberPermissions?: PermissionsString[];
 }

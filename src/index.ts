@@ -1,4 +1,5 @@
 import "module-alias/register";
+console.clear();
 
 import { ClientConfig } from "@lib/interfaces/ClientConfig";
 import Bot = require("@lib/classes/Bot");

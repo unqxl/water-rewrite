@@ -1,7 +1,13 @@
 import CommandHandler = require("@lib/handlers/CommandHandler");
 import EventHandler = require("@lib/handlers/EventHandler");
 import { ClientConfig } from "@lib/interfaces/ClientConfig";
-import { Client, Collection, IntentsBitField } from "discord.js";
+import {
+  ActivityType,
+  Client,
+  Collection,
+  IntentsBitField,
+  ClientPresenceStatus,
+} from "discord.js";
 
 export = class Bot extends Client {
   public config: ClientConfig;
@@ -18,6 +24,16 @@ export = class Bot extends Client {
         IntentsBitField.Flags.GuildPresences,
         IntentsBitField.Flags.MessageContent,
       ],
+
+      presence: {
+        status: "dnd",
+        activities: [
+          {
+            type: ActivityType.Competing,
+            name: "fire",
+          },
+        ],
+      },
     });
 
     this.config = config;

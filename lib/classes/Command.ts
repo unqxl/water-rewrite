@@ -1,22 +1,17 @@
 import { CommandData } from "@lib/interfaces/CommandData";
 import {
-  ApplicationCommandOptionData,
   CommandInteraction,
   CommandInteractionOptionResolver,
-  LocalizationMap,
   PermissionsString,
 } from "discord.js";
 import Bot = require("./Bot");
 import Logger = require("./Logger");
 
-export = class Command implements CommandData {
+export = class Command {
   public client: Bot;
   public logger: Logger;
 
-  public name: string;
-  public description: string;
-  public descriptionLocalized?: LocalizationMap;
-  public options: ApplicationCommandOptionData[];
+  public data: CommandData;
   public clientPermissions: PermissionsString[];
   public memberPermissions: PermissionsString[];
 
@@ -24,31 +19,22 @@ export = class Command implements CommandData {
     this.client = client;
     this.logger = new Logger();
 
-    this.name = data.name;
-    this.description = data.description;
-    this.descriptionLocalized = data.descriptionLocalized;
-    this.options = data.options;
-
-    this.clientPermissions = data.clientPermissions;
-    this.memberPermissions = data.memberPermissions;
+    this.data = data;
 
     void this.handle();
     this.run = this.run?.bind(this);
   }
 
   private handle() {
-    this.client.commands.set(this.name, this);
-    this.client.application.commands.create(this);
+    this.client.commands.set(this.data.data.name, this);
+    this.client.application.commands.create(this.data.data);
 
-    this.logger.log(`Command "${this.name}" has been loaded!`);
+    this.logger.log(`Command "${this.data.data.name}" has been loaded!`);
   }
 
-  public run(
-    command: CommandInteraction,
-    options: CommandInteractionOptionResolver
-  ) {
+  run(command: CommandInteraction) {
     throw this.logger.error(
-      `Run method isn't implemented in command "${this.name}"!`
+      `Run method isn't implemented in command "${this.data.data.name}"!`
     );
   }
 };

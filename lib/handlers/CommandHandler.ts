@@ -16,9 +16,9 @@ export = class CommandHandler extends Handler {
     const files = await glob(template);
     if (!files.length) return this.logger.warn("No commands found!");
 
-    for (const file in files) {
-      const CommandFile = await import(file);
-      new CommandFile();
+    for (const file of files) {
+      const CommandFile = await import(path.resolve(file));
+      new CommandFile(this.client);
     }
 
     this.logger.log(`Loaded ${files.length} commands!`);
