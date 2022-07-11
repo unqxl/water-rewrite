@@ -1,0 +1,36 @@
+{
+  "name": "water-rewrite",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "WhyMe#1126",
+  "license": "Apache",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "deps": "ncu -u",
+    "start": "cd src && ts-node src/index.ts",
+    "postinstall": "is-ci || husky install"
+  },
+  "dependencies": {
+    "bufferutil": "^4.0.6",
+    "deep-object-diff": "^1.1.7",
+    "discord.js": "^14.0.0-dev.1657411900-f0b68d5",
+    "glob": "^8.0.3",
+    "module-alias": "^2.2.2",
+    "npm-check-updates": "^15.2.6",
+    "picocolors": "^1.0.0",
+    "utf-8-validate": "^5.0.9",
+    "yaml": "^2.1.1"
+  },
+  "_moduleAliases": {
+    "@lib": "lib",
+    "@src": "src"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-angular": "^17.0.3",
+    "@types/glob": "^7.2.0",
+    "husky": "^8.0.1",
+    "is-ci": "^3.0.1"
+  },
+  "packageManager": "yarn@1.22.19"
+}
