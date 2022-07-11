@@ -1,6 +1,8 @@
 import Handler = require("@lib/classes/Handler");
 import Bot = require("@lib/classes/Bot");
+import { BaseCommand } from "@lib/classes/BaseCommand";
 import { Command } from "@lib/classes/Command/Command";
+import { ContextCommand } from "@lib/classes/Command/ContextCommand";
 import { SubCommand } from "@lib/classes/Command/SubCommand";
 import {
   ApplicationCommandData,
@@ -24,14 +26,13 @@ export = class CommandHandler extends Handler {
     if (!files.length) return this.logger.warn("No commands found!");
 
     const subCommands: Record<string, SubCommand[]> = {};
-    const commandGroups: Record<string, [string, SubCommand[]]> = {};
+    const commandGroups: Record<string, [string, BaseCommand[]]> = {};
     for (const file of files) {
       delete require.cache[path.resolve(file)];
 
-      const command = await this.resolveFile<Command | SubCommand>(
-        file,
-        this.client
-      );
+      const command = await this.resolveFile<
+        Command | SubCommand | ContextCommand
+      >(file, this.client);
 
       var commandName;
       if (command instanceof SubCommand) {
@@ -49,6 +50,15 @@ export = class CommandHandler extends Handler {
           subCommands[topLevelName] = [...prev, command];
           commandName = `${topLevelName}-${command.name}`;
         }
+      } else if (command instanceof ContextCommand) {
+        commandName = command.name;
+
+        const data: ApplicationCommandData = {
+          type: ApplicationCommandType.User,
+          name: command.name,
+        };
+
+        await this.client.application.commands.create(data);
       } else {
         commandName = command.name;
 

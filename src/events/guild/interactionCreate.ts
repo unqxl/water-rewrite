@@ -1,5 +1,7 @@
-import Event = require("@lib/classes/Event");
+import { Command } from "@lib/classes/Command/Command";
+import { ContextCommand } from "@lib/classes/Command/ContextCommand";
 import { Interaction } from "discord.js";
+import Event = require("@lib/classes/Event");
 
 export = class InteractionCreate extends Event {
   constructor() {
@@ -7,13 +9,20 @@ export = class InteractionCreate extends Event {
   }
 
   run(interaction: Interaction) {
-    if (!interaction.isChatInputCommand()) return;
     if (!interaction.inGuild()) return;
 
-    const cmd = interaction.commandName;
-    const command = this.client.commands.get(cmd);
-    if (!command) return;
+    if (interaction.isChatInputCommand()) {
+      const cmd = interaction.commandName;
+      const command = this.client.commands.get(cmd);
+      if (!command || !(command instanceof Command)) return;
 
-    void command.run(interaction);
+      void command.run(interaction);
+    } else if (interaction.isContextMenuCommand()) {
+      const cmd = interaction.commandName;
+      const command = this.client.commands.get(cmd);
+      if (!command || !(command instanceof ContextCommand)) return;
+
+      void command.run(interaction);
+    }
   }
 };

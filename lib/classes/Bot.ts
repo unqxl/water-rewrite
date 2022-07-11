@@ -45,6 +45,11 @@ export = class Bot extends Client {
         dataDir: "./data",
         wal: false,
       }),
+      moderation: new Enmap({
+        name: "moderation",
+        dataDir: "./data",
+        wal: false,
+      }),
     };
 
     this.distube = new DisTube(this, {
