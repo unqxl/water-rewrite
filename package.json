@@ -6,26 +6,28 @@
   "license": "Apache",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "deps": "ncu -u",
+    "deps": "cd src/scripts && ts-node prepare.ts",
     "start": "cd src && ts-node index.ts",
     "postinstall": "is-ci || husky install"
   },
   "dependencies": {
     "@discordjs/builders": "^0.16.0-dev.1657411897-f0b68d5",
+    "@discordjs/opus": "^0.8.0",
+    "@discordjs/voice": "^0.10.0",
+    "@distube/yt-dlp": "^1.0.2",
     "bufferutil": "^4.0.6",
     "deep-object-diff": "^1.1.7",
     "discord-rpc": "^4.0.1",
     "discord.js": "^14.0.0-dev.1657411900-f0b68d5",
+    "distube": "^4.0.0-dev.5",
+    "enmap": "^5.9.0",
     "glob": "^8.0.3",
     "module-alias": "^2.2.2",
     "npm-check-updates": "^15.2.6",
     "picocolors": "^1.0.0",
+    "undici": "^5.6.1",
     "utf-8-validate": "^5.0.9",
     "yaml": "^2.1.1"
-  },
-  "_moduleAliases": {
-    "@lib": "lib",
-    "@src": "src"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
@@ -33,7 +35,12 @@
     "@types/discord-rpc": "^4.0.3",
     "@types/glob": "^7.2.0",
     "husky": "^8.0.1",
-    "is-ci": "^3.0.1"
+    "is-ci": "^3.0.1",
+    "libsodium-wrappers": "^0.7.10"
+  },
+  "_moduleAliases": {
+    "@lib": "lib",
+    "@src": "src"
   },
   "packageManager": "yarn@1.22.19"
 }

@@ -1,0 +1,18 @@
+{
+  "base-command": {
+    "prefix": ["subcommand"],
+    "body": [
+      "import Bot = require(\"@lib/classes/Bot\");",
+      "import { SubCommand } from \"@lib/classes/Command/SubCommand\";",
+      "import { ChatInputCommandInteraction } from \"discord.js\";",
+      "",
+      "export = class TestCommand extends Command {",
+      "   constructor(client: Bot) {",
+      "       super(client, {});",
+      "   }",
+      "",
+      "   async run(command: ChatInputCommandInteraction) {}",
+      "}"
+    ]
+  }
+}

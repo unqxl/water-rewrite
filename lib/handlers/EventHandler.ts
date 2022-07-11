@@ -1,13 +1,13 @@
 import Handler = require("@lib/classes/Handler");
-import { Client } from "discord.js";
+import Bot = require("@lib/classes/Bot");
 import { promisify } from "util";
 
-import * as Glob from "glob";
-import * as path from "path";
+import Glob from "glob";
+import path from "path";
 const glob = promisify(Glob);
 
 export = class EventHandler extends Handler {
-  constructor(client: Client) {
+  constructor(client: Bot) {
     super(client, "EventHandler");
   }
 
@@ -17,7 +17,7 @@ export = class EventHandler extends Handler {
     if (!files.length) return this.logger.warn("No events found!");
 
     for (const file of files) {
-      const EventFile = await import(path.resolve(file));
+      const EventFile = (await import(path.resolve(file))).default;
       const Event = new EventFile();
 
       this.client.on(Event.name, (...args) => {

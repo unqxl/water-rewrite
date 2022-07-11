@@ -8,13 +8,24 @@ export = class Ready extends Event {
 
   async run() {
     if (!this.client.application.owner) await this.client.application.fetch();
+
     this.setRPC();
+    this.init();
 
     this.logger.log(`${this.client.user.tag} is online!`);
     this.client.CommandHandler.handle();
   }
 
-  async setRPC() {
+  init() {
+    require("../../scripts/auto-backup");
+
+    // Every day
+    setInterval(() => {
+      require("../../scripts/auto-backup");
+    }, 86400000);
+  }
+
+  setRPC() {
     const rpc = new Client({ transport: "ipc" });
     rpc.login({ clientId: this.client.user.id });
 

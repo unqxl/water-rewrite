@@ -5,30 +5,30 @@ export = class Logger {
     return new Date().toLocaleString();
   }
 
-  log(message: string) {
+  log(message: string, enter_before?: boolean) {
     const time = this.time;
 
     const tag = picocolors.magenta(`[${time}]`);
     const msg = picocolors.cyan(message);
 
-    console.log([tag, msg].join(" "));
+    console.log([enter_before ? `\n${tag}` : tag, msg].join(" "));
   }
 
-  warn(message: string) {
+  warn(message: string, enter_before?: boolean) {
     const time = this.time;
 
     const tag = picocolors.magenta(`[${time}]`);
     const msg = picocolors.yellow(message);
 
-    console.log([tag, msg].join(" "));
+    console.log([enter_before ? `\n${tag}` : tag, msg].join(" "));
   }
 
-  error(message: string) {
+  error(message: string, enter_before?: boolean) {
     const time = this.time;
 
     const tag = picocolors.magenta(`[${time}]`);
     const msg = picocolors.red(message);
 
-    console.log([tag, msg].join(" "));
+    console.log([enter_before ? `\n${tag}` : tag, msg].join(" "));
   }
 };

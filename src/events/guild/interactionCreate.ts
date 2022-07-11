@@ -1,5 +1,5 @@
 import Event = require("@lib/classes/Event");
-import { Interaction, InteractionType } from "discord.js";
+import { Interaction } from "discord.js";
 
 export = class InteractionCreate extends Event {
   constructor() {
