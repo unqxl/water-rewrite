@@ -6,7 +6,7 @@
       "import { SubCommand } from \"@lib/classes/Command/SubCommand\";",
       "import { ChatInputCommandInteraction } from \"discord.js\";",
       "",
-      "export = class TestCommand extends Command {",
+      "export = class TestCommand extends SubCommand {",
       "   constructor(client: Bot) {",
       "       super(client, {});",
       "   }",

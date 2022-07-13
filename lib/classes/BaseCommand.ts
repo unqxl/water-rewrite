@@ -14,6 +14,7 @@ export interface BaseCommandOptions {
 
   options?: ApplicationCommandOptionData[];
 
+  ownerOnly?: boolean;
   memberPermissions?: PermissionsString[];
   clientPermissions?: PermissionsString[];
 }

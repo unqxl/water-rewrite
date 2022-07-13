@@ -1,6 +1,6 @@
-import { Command } from "@lib/classes/Command/Command";
 import { ContextCommand } from "@lib/classes/Command/ContextCommand";
-import { Interaction } from "discord.js";
+import { SubCommand } from "@lib/classes/Command/SubCommand";
+import { ChatInputCommandInteraction, Interaction } from "discord.js";
 import Event = require("@lib/classes/Event");
 
 export = class InteractionCreate extends Event {
@@ -12,17 +12,37 @@ export = class InteractionCreate extends Event {
     if (!interaction.inGuild()) return;
 
     if (interaction.isChatInputCommand()) {
-      const cmd = interaction.commandName;
-      const command = this.client.commands.get(cmd);
-      if (!command || !(command instanceof Command)) return;
+      const cmd = this.getCommandName(interaction);
+      const command = this.client.commands.get(cmd) as SubCommand;
+      if (!command) return;
 
-      void command.run(interaction);
+      return command.run(interaction);
     } else if (interaction.isContextMenuCommand()) {
       const cmd = interaction.commandName;
-      const command = this.client.commands.get(cmd);
-      if (!command || !(command instanceof ContextCommand)) return;
+      const command = this.client.commands.get(cmd) as ContextCommand;
+      if (!command) return;
 
-      void command.run(interaction);
+      return command.run(interaction);
     }
+  }
+
+  getCommandName(interaction: ChatInputCommandInteraction) {
+    let command: string;
+
+    const commandName = interaction.commandName;
+    const groupName = interaction.options.getSubcommandGroup(false);
+    const subCommand = interaction.options.getSubcommand(false);
+
+    if (subCommand) {
+      if (groupName) {
+        command = `${commandName}-${groupName}-${subCommand}`;
+      } else {
+        command = `${commandName}-${subCommand}`;
+      }
+    } else {
+      command = commandName;
+    }
+
+    return command;
   }
 };

@@ -1149,10 +1149,10 @@ discord-rpc@^4.0.1:
   optionalDependencies:
     register-scheme "github:devsnek/node-register-scheme"
 
-discord.js@^14.0.0-dev.1657411900-f0b68d5:
-  version "14.0.0-dev.1657411900-f0b68d5"
-  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-14.0.0-dev.1657411900-f0b68d5.tgz#aedca6c41fc64aacfd9f9d9ddd4b7ee57926eec0"
-  integrity sha512-mPeIaxthGZEc4qKi6HzWnMIbHOh63qJHr37qFWMoDZpYOPht7Q1V2w3eGh7e30kCoh1BNrLGaeYqwRxpYENjsg==
+discord.js@^14.0.0-dev.1657713879-30a8d32:
+  version "14.0.0-dev.1657713879-30a8d32"
+  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-14.0.0-dev.1657713879-30a8d32.tgz#e1cfad54b382a0f89cdb0e398b737e82068a250a"
+  integrity sha512-uc9dTZpB15ebu/5TTHXQm+1R3lkJRxqtJugN/ODYD9LPNjwMtVzQlsiFsS4HXhk8E5JURuBEWTNIEm7g+rjDeQ==
   dependencies:
     "@discordjs/builders" "^0.16.0-dev"
     "@discordjs/collection" "^0.8.0-dev"
@@ -3110,6 +3110,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+systeminformation@^5.12.0:
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/systeminformation/-/systeminformation-5.12.0.tgz#1ff8d0b0fef9c2a6f70e1b1f2e681b8cd2d4b78e"
+  integrity sha512-2fa/2cnWxiC/g8v3XX4aEC2CQWl/WJ+JrfLq9f76lxYqkW4DWiU3vJhrEgAzBT07ta73c5wHd0xgMeMo0vBiMQ==
+
 tar-fs@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/tar-fs/-/tar-fs-2.1.1.tgz#489a15ab85f1f0befabb370b7de4f9eb5cbe8784"
@@ -3255,10 +3260,15 @@ typescript@^4.6.4:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.4.tgz#1a88596d1cf47d59507a1bcdfb5b9dfe4d488235"
   integrity sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==
 
-undici@^5.6.0, undici@^5.6.1:
+undici@^5.6.0:
   version "5.6.1"
   resolved "https://registry.yarnpkg.com/undici/-/undici-5.6.1.tgz#7e5c56d15032d06738358dea433f98130e2a0561"
   integrity sha512-yYVqywdCbNb99f/w045wqmv++WExXDjY0FEvLSB7QUZZH6izxrVkF4dJn1aimcvN0+WAhv75Gg7v6VJoqmRtJQ==
+
+undici@^5.7.0:
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-5.7.0.tgz#979f89229c01505573cb274d0e11ea8d82b4004f"
+  integrity sha512-ORgxwDkiPS+gK2VxE7iyVeR7JliVn5DqhZ4LgQqYLBXsuK+lwOEmnJ66dhvlpLM0tC3fC7eYF1Bti2frbw2eAA==
 
 unique-filename@^1.1.1:
   version "1.1.1"

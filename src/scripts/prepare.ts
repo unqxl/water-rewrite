@@ -21,6 +21,7 @@ function check_versions() {
     if (diffed.dependencies) {
       const length = Object.keys(diffed.dependencies).length;
       logger.log(`${length} module${length > 1 ? "s" : ""} updated.`);
+      return;
     }
 
     logger.log("No updates found.");

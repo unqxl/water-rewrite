@@ -10,6 +10,7 @@ export interface BaseContextCommandOptions {
   name: string;
   name_localizations?: LocalizationMap;
 
+  ownerOnly?: boolean;
   memberPermissions?: PermissionsString[];
   clientPermissions?: PermissionsString[];
 }

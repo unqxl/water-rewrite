@@ -1,4 +1,7 @@
-import { ApplicationCommandOptionType } from "discord.js";
+import {
+  ApplicationCommandOptionType,
+  ChatInputCommandInteraction,
+} from "discord.js";
 import { BaseCommand, BaseCommandOptions } from "../BaseCommand";
 
 export interface SubCommandOptions extends BaseCommandOptions {
@@ -13,6 +16,13 @@ export class SubCommand extends BaseCommand<SubCommandOptions> {
     return {
       type: ApplicationCommandOptionType.Subcommand,
       ...this._options,
+    };
+  }
+
+  getEmbedAuthor(cmd: ChatInputCommandInteraction) {
+    return {
+      name: cmd.user.username,
+      iconURL: cmd.user.avatarURL({ size: 4096 }),
     };
   }
 }
