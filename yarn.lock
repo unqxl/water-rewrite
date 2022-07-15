@@ -850,7 +850,7 @@ chalk@^2.0.0:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@^4.1.0, chalk@^4.1.2:
+chalk@^4.1.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -1149,10 +1149,10 @@ discord-rpc@^4.0.1:
   optionalDependencies:
     register-scheme "github:devsnek/node-register-scheme"
 
-discord.js@^14.0.0-dev.1657713879-30a8d32:
-  version "14.0.0-dev.1657713879-30a8d32"
-  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-14.0.0-dev.1657713879-30a8d32.tgz#e1cfad54b382a0f89cdb0e398b737e82068a250a"
-  integrity sha512-uc9dTZpB15ebu/5TTHXQm+1R3lkJRxqtJugN/ODYD9LPNjwMtVzQlsiFsS4HXhk8E5JURuBEWTNIEm7g+rjDeQ==
+discord.js@^14.0.0-dev.1657757514-fe34f48:
+  version "14.0.0-dev.1657757514-fe34f48"
+  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-14.0.0-dev.1657757514-fe34f48.tgz#2aa0570fbb0995acaee205ee74f1b10af8042091"
+  integrity sha512-warixUTyz+NIyoTQht21Seo1bC1UPSRw3/b/uUtPB/BGu4e1X1orwcEP1wepQuwyqLIf8yo0vRJo21vRvwILvg==
   dependencies:
     "@discordjs/builders" "^0.16.0-dev"
     "@discordjs/collection" "^0.8.0-dev"
@@ -2293,12 +2293,12 @@ npm-bundled@^1.1.1, npm-bundled@^1.1.2:
   dependencies:
     npm-normalize-package-bin "^1.0.1"
 
-npm-check-updates@^15.2.6:
-  version "15.2.6"
-  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-15.2.6.tgz#d460d586c383afbffc2006b461d05ad2207bc965"
-  integrity sha512-lXihP+6EjHW74ENE6YYW2feUmdsfK4evus2ZTCyTd0QSnmHdx0bcHpiHsjgqjPtIqgHPJXLCrV6gd3JGYZg3xg==
+npm-check-updates@^15.3.3:
+  version "15.3.3"
+  resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-15.3.3.tgz#35de2235b78fafd08d9a43e864f29c559dc112da"
+  integrity sha512-kdZte9jeJ3n8tS8wxAjrvQz5owi4AEY9pxt5OaEzw094k/ymg0HYR6b89W2OJaFn7xK4tCrkOFp9PUWKlydA8Q==
   dependencies:
-    chalk "^4.1.2"
+    chalk "^5.0.1"
     cli-table "^0.3.11"
     commander "^9.3.0"
     fast-memoize "^2.5.2"
@@ -3110,10 +3110,10 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-systeminformation@^5.12.0:
-  version "5.12.0"
-  resolved "https://registry.yarnpkg.com/systeminformation/-/systeminformation-5.12.0.tgz#1ff8d0b0fef9c2a6f70e1b1f2e681b8cd2d4b78e"
-  integrity sha512-2fa/2cnWxiC/g8v3XX4aEC2CQWl/WJ+JrfLq9f76lxYqkW4DWiU3vJhrEgAzBT07ta73c5wHd0xgMeMo0vBiMQ==
+systeminformation@^5.12.1:
+  version "5.12.1"
+  resolved "https://registry.yarnpkg.com/systeminformation/-/systeminformation-5.12.1.tgz#8e512e4f9f21caaaa5f802fcb6a337cb4dc8b2f5"
+  integrity sha512-qAV0xSeSJlg0ZHmQ1T2rLrL54SATalBx6v4T8Sd5s17pEm6saX3LKzlPhfPx+EfT91y9yhRYnKhnMoLTFkxbqw==
 
 tar-fs@^2.0.0:
   version "2.1.1"

@@ -1,3 +1,6 @@
 bot:
   token: "token" # Discord Bot Token
   owners: [] # Discord User IDs of bot owners
+keys:
+  steam: "key" # Steam API Key
+  faceit: "key" # FACEIT API Key

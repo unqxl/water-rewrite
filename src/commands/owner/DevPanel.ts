@@ -1,5 +1,4 @@
 import { ActionRowBuilder } from "@discordjs/builders";
-import Bot = require("@lib/classes/Bot");
 import { SubCommand } from "@lib/classes/Command/SubCommand";
 import { getCommitHash } from "@src/scripts/getCommitHash";
 import {
@@ -12,6 +11,7 @@ import {
   version,
 } from "discord.js";
 import { get } from "systeminformation";
+import Bot = require("@lib/classes/Bot");
 
 export = class DevPanelCommand extends SubCommand {
   constructor(client: Bot) {

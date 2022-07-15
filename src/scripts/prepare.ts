@@ -20,7 +20,13 @@ function check_versions() {
     const diffed = diff(before_parsed, after_parsed) as any;
     if (diffed.dependencies) {
       const length = Object.keys(diffed.dependencies).length;
-      logger.log(`${length} module${length > 1 ? "s" : ""} updated.`);
+      logger.log(
+        `${length} module${
+          length > 1 ? "s" : ""
+        } updated. Executing "yarn install`
+      );
+
+      exec("yarn install");
       return;
     }
 
