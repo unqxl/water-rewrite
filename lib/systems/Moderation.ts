@@ -1,5 +1,8 @@
 import Bot = require("@lib/classes/Bot");
-import { ModerationLogType } from "@lib/interfaces/ModerationData";
+import {
+  ModerationLogData,
+  ModerationLogType,
+} from "@lib/interfaces/ModerationData";
 import { GuildMember } from "discord.js";
 
 export = class ModerationSystem {
@@ -11,6 +14,23 @@ export = class ModerationSystem {
 
   /**
    * Creates a new moderation entry.
+   */
+  createLog(guild_id: string, data: ModerationLogData) {
+    const database = this.client.databases.moderation.get(guild_id);
+    if (!database) return false;
+
+    database.push({
+      id: database.length + 1,
+      ...data,
+    });
+
+    this.client.databases.moderation.set(guild_id, database);
+
+    return true;
+  }
+
+  /**
+   * Creates a new moderation entry (warn).
    */
   warn(
     guild_id: string,
@@ -78,7 +98,7 @@ export = class ModerationSystem {
       return x.type === "mute" && x.target === target.id;
     });
     if (check) return false;
-    
+
     const { mute } = this.client.databases.guilds.get(guild_id).roles;
     if (!mute) return false;
 

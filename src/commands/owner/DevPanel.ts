@@ -1,7 +1,7 @@
-import { ActionRowBuilder } from "@discordjs/builders";
 import { SubCommand } from "@lib/classes/Command/SubCommand";
 import { getCommitHash } from "@src/scripts/getCommitHash";
 import {
+  ActionRowBuilder,
   bold,
   ButtonBuilder,
   ButtonStyle,

@@ -1,5 +1,5 @@
 export interface ModerationLogData {
-  id: number;
+  id?: number;
 
   type: ModerationLogType;
   executor: string;
@@ -8,4 +8,10 @@ export interface ModerationLogData {
   timestamp: number;
 }
 
-export type ModerationLogType = "warn" | "unwarn" | "mute" | "unmute";
+export type ModerationLogType =
+  | "ban"
+  | "kick"
+  | "warn"
+  | "unwarn"
+  | "mute"
+  | "unmute";

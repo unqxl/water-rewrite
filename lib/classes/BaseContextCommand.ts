@@ -1,3 +1,4 @@
+import { GuildData } from "@lib/interfaces/GuildData";
 import {
   ContextMenuCommandInteraction,
   PermissionsString,
@@ -39,7 +40,7 @@ export class BaseContextCommand<
     return this._options;
   }
 
-  run(context: ContextMenuCommandInteraction) {
+  run(context: ContextMenuCommandInteraction, config: GuildData) {
     throw this.logger.error(
       `ContextCommand.run() is not implemented in "${this.name}" command!`
     );

@@ -16,13 +16,21 @@ export = class InteractionCreate extends Event {
       const command = this.client.commands.get(cmd) as SubCommand;
       if (!command) return;
 
-      return command.run(interaction);
+      const guildConfig = this.client.databases.guilds.get(
+        interaction.guild.id
+      );
+
+      return command.run(interaction, guildConfig);
     } else if (interaction.isContextMenuCommand()) {
       const cmd = interaction.commandName;
       const command = this.client.commands.get(cmd) as ContextCommand;
       if (!command) return;
 
-      return command.run(interaction);
+      const guildConfig = this.client.databases.guilds.get(
+        interaction.guild.id
+      );
+
+      return command.run(interaction, guildConfig);
     }
   }
 

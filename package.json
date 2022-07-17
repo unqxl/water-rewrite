@@ -19,7 +19,7 @@
     "bufferutil": "^4.0.6",
     "deep-object-diff": "^1.1.7",
     "discord-rpc": "^4.0.1",
-    "discord.js": "^14.0.0-dev.1657757514-fe34f48",
+    "discord.js": "^14.0.1",
     "distube": "^4.0.0-dev.5",
     "enmap": "^5.9.0",
     "glob": "^8.0.3",

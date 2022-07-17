@@ -1,3 +1,4 @@
+import { GuildData } from "@lib/interfaces/GuildData";
 import {
   ApplicationCommandOptionData,
   ChatInputCommandInteraction,
@@ -43,7 +44,7 @@ export class BaseCommand<
     return this._options;
   }
 
-  run(command: ChatInputCommandInteraction) {
+  run(command: ChatInputCommandInteraction, config: GuildData) {
     throw this.logger.error(
       `Command.run() is not implemented in "${this.name}" command!`
     );
