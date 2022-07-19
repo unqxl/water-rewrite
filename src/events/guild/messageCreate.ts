@@ -3,7 +3,7 @@ import { codeBlock, Message } from "discord.js";
 
 export = class MessageCreate extends Event {
   constructor() {
-    super("messageCreate");
+    super({ name: "messageCreate" });
   }
 
   run(message: Message) {

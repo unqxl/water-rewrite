@@ -5,7 +5,7 @@ import Event = require("@lib/classes/Event");
 
 export = class InteractionCreate extends Event {
   constructor() {
-    super("interactionCreate");
+    super({ name: "interactionCreate" });
   }
 
   run(interaction: Interaction) {

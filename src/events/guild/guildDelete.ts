@@ -4,7 +4,7 @@ import { Guild } from "discord.js";
 
 export = class GuildDelete extends Event {
   constructor() {
-    super("guildDelete");
+    super({ name: "guildDelete" });
   }
 
   run(guild: Guild) {

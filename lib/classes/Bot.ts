@@ -5,6 +5,7 @@ import { ClientConfig } from "@lib/interfaces/ClientConfig";
 import { ActivityType, Client, Collection, IntentsBitField } from "discord.js";
 import DisTube from "distube";
 import Enmap from "enmap";
+import DiscordLogs = require("discord-logs");
 
 export = class Bot extends Client {
   public config: ClientConfig;
@@ -61,7 +62,10 @@ export = class Bot extends Client {
       emitAddSongWhenCreatingQueue: false,
       emptyCooldown: 5,
 
-      plugins: [new YtDlpPlugin()],
+      searchCooldown: 5,
+      searchSongs: 10,
+
+      plugins: [new YtDlpPlugin({ update: false })],
     });
 
     this.CommandHandler = new CommandHandler(this);
@@ -70,6 +74,7 @@ export = class Bot extends Client {
 
   async run() {
     this.distube.setMaxListeners(Infinity);
+    DiscordLogs(this);
 
     this.EventHandler.handle();
     this.login(this.config.bot.token);

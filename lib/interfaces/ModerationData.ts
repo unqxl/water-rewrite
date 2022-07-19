@@ -10,6 +10,7 @@ export interface ModerationLogData {
 
 export type ModerationLogType =
   | "ban"
+  | "unban"
   | "kick"
   | "warn"
   | "unwarn"

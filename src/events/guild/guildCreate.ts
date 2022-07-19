@@ -4,7 +4,7 @@ import { Guild } from "discord.js";
 
 export = class GuildCreate extends Event {
   constructor() {
-    super("guildCreate");
+    super({ name: "guildCreate" });
   }
 
   run(guild: Guild) {

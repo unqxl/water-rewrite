@@ -1,5 +1,6 @@
 import Handler = require("@lib/classes/Handler");
 import Bot = require("@lib/classes/Bot");
+import Event = require("@lib/classes/Event");
 import { promisify } from "util";
 
 import Glob from "glob";
@@ -18,11 +19,17 @@ export = class EventHandler extends Handler {
 
     for (const file of files) {
       const EventFile = (await import(path.resolve(file))).default;
-      const Event = new EventFile();
+      const event: Event = new EventFile();
 
-      this.client.on(Event.name, (...args) => {
-        Event.run(...args);
-      });
+      if (event.emitter !== "client") {
+        this.client[event.emitter].on(event.name, (...args) => {
+          event.run(...args);
+        });
+      } else {
+        this.client.on(event.name, (...args) => {
+          event.run(...args);
+        });
+      }
     }
 
     this.logger.log(`Loaded ${files.length} events!`);

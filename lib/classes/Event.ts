@@ -7,12 +7,15 @@ export = class Event {
   public logger: Logger;
 
   public name: string;
+  public emitter?: string;
 
-  public constructor(name: string) {
+  public constructor({ name, emitter }: EventConfig) {
     this.client = Client;
     this.logger = new Logger();
 
     this.name = name;
+    this.emitter = emitter || "client";
+
     this.run = this.run?.bind(this);
   }
 
@@ -22,3 +25,8 @@ export = class Event {
     );
   }
 };
+
+interface EventConfig {
+  name: string;
+  emitter?: string;
+}
