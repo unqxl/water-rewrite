@@ -9,6 +9,6 @@ export = class GuildCreate extends Event {
 
   run(guild: Guild) {
     const database = new Database(this.client);
-    database.getGuild(guild.id);
+    database.createGuild(guild.id);
   }
 };

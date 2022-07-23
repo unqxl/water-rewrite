@@ -8,11 +8,12 @@ export interface ModerationLogData {
   timestamp: number;
 }
 
-export type ModerationLogType =
-  | "ban"
-  | "unban"
-  | "kick"
-  | "warn"
-  | "unwarn"
-  | "mute"
-  | "unmute";
+export enum ModerationLogType {
+  BAN = 1,
+  UNBAN = 2,
+  KICK = 3,
+  WARN = 4,
+  UNWARN = 5,
+  MUTE = 6,
+  UNMUTE = 7,
+}

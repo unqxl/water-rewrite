@@ -1,5 +1,5 @@
-import { ContextCommand } from "@lib/classes/Command/ContextCommand";
-import { SubCommand } from "@lib/classes/Command/SubCommand";
+import { ContextCommand } from "@lib/classes/ContextCommand";
+import { SubCommand } from "@lib/classes/SubCommand";
 import { ChatInputCommandInteraction, Interaction } from "discord.js";
 import Event = require("@lib/classes/Event");
 

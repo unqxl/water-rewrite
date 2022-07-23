@@ -1,4 +1,4 @@
-import { SubCommand } from "@lib/classes/Command/SubCommand";
+import { SubCommand } from "@lib/classes/SubCommand";
 import { getCommitHash } from "@src/scripts/getCommitHash";
 import {
   ActionRowBuilder,

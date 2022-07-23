@@ -35,6 +35,10 @@ export = class Database {
           "Welcome to the server, %s!\nThere's %s members in this server now.",
         goodbye:
           "It's time to say goodbye to %s!\nThere's %s members in this server now...",
+        boost:
+          "This server has been boosted by %s!\nThere's %s boosts in this server now.",
+        unboost:
+          "This server has been unboosted by %s!\nThere's %s boosts in this server now.",
       },
     });
 

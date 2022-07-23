@@ -41,16 +41,14 @@ export = class ModerationSystem {
     const database = this.client.databases.moderation.get(guild_id);
     if (!database) return false;
 
-    database.push({
-      id: database.length + 1,
-      type: "warn",
+    this.createLog(guild_id, {
+      type: ModerationLogType.WARN,
       executor: executor.id,
       target: target.id,
       reason: reason,
       timestamp: Date.now(),
     });
 
-    this.client.databases.moderation.set(guild_id, database);
     return true;
   }
 
@@ -61,22 +59,23 @@ export = class ModerationSystem {
     const database = this.client.databases.moderation.get(guild_id);
     if (!database) return false;
 
-    const warns = database.filter((x) => x.target === target.id);
+    const warns = database.filter(
+      (x) => x.target === target.id && x.type === ModerationLogType.WARN
+    );
 
     const data = warns[warns.length - 1];
     const new_data = warns[warns.length - 1];
 
     database.splice(database.indexOf(new_data), 1);
-    database.push({
-      id: database.length + 1,
-      type: "unwarn",
+    this.client.databases.moderation.set(guild_id, database);
+
+    this.createLog(guild_id, {
+      type: ModerationLogType.UNWARN,
       executor: data.executor,
       target: data.target,
       reason: data.reason,
       timestamp: Date.now(),
     });
-
-    this.client.databases.moderation.set(guild_id, database);
 
     return true;
   }
@@ -95,7 +94,7 @@ export = class ModerationSystem {
     if (!database) return false;
 
     const check = database.filter((x) => {
-      return x.type === "mute" && x.target === target.id;
+      return x.type === ModerationLogType.MUTE && x.target === target.id;
     });
     if (check) return false;
 
@@ -128,6 +127,8 @@ export = class ModerationSystem {
       );
 
       return entries;
+    } else {
+      return database;
     }
   }
 
@@ -147,16 +148,13 @@ export = class ModerationSystem {
     if (!role) return false;
 
     target.roles.add(mute);
-    data.push({
-      id: data.length + 1,
-      type: "mute",
+    this.createLog(target.guild.id, {
+      type: ModerationLogType.MUTE,
       executor: executor.id,
       target: target.id,
       reason: reason,
       timestamp: Date.now(),
     });
-
-    this.client.databases.moderation.set(target.guild.id, data);
 
     setTimeout(() => {
       target.roles.remove(role);
@@ -165,7 +163,7 @@ export = class ModerationSystem {
       if (!new_data) return false;
 
       const new_data_entry = new_data.filter(
-        (x) => x.type === "mute" && x.target === target.id
+        (x) => x.type === ModerationLogType.MUTE && x.target === target.id
       );
 
       new_data.splice(new_data.indexOf(new_data_entry[0]), 1);

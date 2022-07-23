@@ -1,6 +1,7 @@
 import Bot = require("@lib/classes/Bot");
-import { SubCommand } from "@lib/classes/Command/SubCommand";
+import { SubCommand } from "@lib/classes/SubCommand";
 import { GuildData } from "@lib/interfaces/GuildData";
+import { ModerationLogType } from "@lib/interfaces/ModerationData";
 import {
   ApplicationCommandOptionType,
   bold,
@@ -105,7 +106,7 @@ export = class KickCommand extends SubCommand {
     embed.setTimestamp();
 
     moderation.createLog(command.guildId, {
-      type: "kick",
+      type: ModerationLogType.KICK,
       executor: command.user.id,
       target: member.id,
       reason,

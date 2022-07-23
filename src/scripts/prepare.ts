@@ -23,7 +23,7 @@ function check_versions() {
       logger.log(
         `${length} module${
           length > 1 ? "s" : ""
-        } updated. Executing "yarn install`
+        } updated. Executing "yarn install"...`
       );
 
       exec("yarn install");

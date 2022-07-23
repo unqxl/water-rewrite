@@ -1,6 +1,7 @@
 import Bot = require("@lib/classes/Bot");
-import { SubCommand } from "@lib/classes/Command/SubCommand";
+import { SubCommand } from "@lib/classes/SubCommand";
 import { GuildData } from "@lib/interfaces/GuildData";
+import { ModerationLogType } from "@lib/interfaces/ModerationData";
 import {
   ApplicationCommandOptionType,
   bold,
@@ -108,7 +109,7 @@ export = class BanCommand extends SubCommand {
     embed.setTimestamp();
 
     moderation.createLog(command.guildId, {
-      type: "ban",
+      type: ModerationLogType.BAN,
       executor: command.user.id,
       target: member.id,
       reason,

@@ -22,6 +22,8 @@ type GuildSystems = {
 type GuildTexts = {
   welcome: string;
   goodbye: string;
+  boost: string;
+  unboost: string;
 };
 
 type TwitchStreamer = {

@@ -1,9 +1,10 @@
 import Event = require("@lib/classes/Event");
-import { Command } from "@lib/classes/Command/Command";
+import { Command } from "@lib/classes/Command";
 import { ContextCommand } from "@lib/classes/Command/ContextCommand";
 import { Collection } from "discord.js";
 import DisTube from "distube";
 import Enmap from "enmap";
+import Functions = require("@lib/classes/Functions");
 
 // Interfaces
 import { GuildData } from "@lib/interfaces/GuildData";
@@ -19,6 +20,7 @@ declare module "discord.js" {
       moderation: Enmap<string, ModerationLogData[]>;
     };
 
+    functions: Functions;
     distube: DisTube;
   }
 }

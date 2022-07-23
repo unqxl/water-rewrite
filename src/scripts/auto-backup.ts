@@ -9,10 +9,12 @@ function autoBackup() {
     return false;
   }
 
-  logger.log("Creating backup...", true);
-  logger.log(`› Name: backup-${Date.now()}.sqlite`);
+  const date = Date.now();
 
-  copyFileSync("./data/enmap.sqlite", `./backups/backup-${Date.now()}.sqlite`);
+  logger.log("Creating backup...", true);
+  logger.log(`› Name: backup-${date}.sqlite`);
+
+  copyFileSync("./data/enmap.sqlite", `./backups/backup-${date}.sqlite`);
 
   logger.log(`Backup created!\n`);
   return true;

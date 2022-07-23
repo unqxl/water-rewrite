@@ -1,6 +1,7 @@
 import Event = require("@lib/classes/Event");
-import ModerationSystem = require("@lib/systems/Moderation");
+import { ModerationLogType } from "@lib/interfaces/ModerationData";
 import { AuditLogEvent, GuildBan } from "discord.js";
+import ModerationSystem = require("@lib/systems/Moderation");
 
 export = class GuildBanAdd extends Event {
   constructor() {
@@ -19,7 +20,7 @@ export = class GuildBanAdd extends Event {
 
     const moderation = new ModerationSystem(this.client);
     moderation.createLog(ban.guild.id, {
-      type: "ban",
+      type: ModerationLogType.BAN,
       executor: entry.executor.id,
       target: ban.user.id,
       reason: ban.reason,

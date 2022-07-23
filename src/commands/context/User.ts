@@ -1,6 +1,6 @@
 // TODO: rework this file
 
-import { ContextCommand } from "@lib/classes/Command/ContextCommand";
+import { ContextCommand } from "@lib/classes/ContextCommand";
 import { ContextMenuCommandInteraction } from "discord.js";
 
 export = class User extends ContextCommand {

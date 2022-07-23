@@ -1,7 +1,7 @@
 import Handler = require("@lib/classes/Handler");
 import Bot = require("@lib/classes/Bot");
-import { BaseCommand } from "@lib/classes/BaseCommand";
-import { Command } from "@lib/classes/Command/Command";
+import { BaseCommand } from "@lib/classes/Command/BaseCommand";
+import { Command } from "@lib/classes/Command";
 import { ContextCommand } from "@lib/classes/Command/ContextCommand";
 import { SubCommand } from "@lib/classes/Command/SubCommand";
 import {

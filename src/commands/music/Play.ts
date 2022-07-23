@@ -1,5 +1,5 @@
 import Bot = require("@lib/classes/Bot");
-import { SubCommand } from "@lib/classes/Command/SubCommand";
+import { SubCommand } from "@lib/classes/SubCommand";
 import { GuildData } from "@lib/interfaces/GuildData";
 import {
   ActionRowBuilder,

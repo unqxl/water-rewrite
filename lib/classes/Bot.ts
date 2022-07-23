@@ -6,6 +6,7 @@ import { ActivityType, Client, Collection, IntentsBitField } from "discord.js";
 import DisTube from "distube";
 import Enmap from "enmap";
 import DiscordLogs = require("discord-logs");
+import Functions = require("./Functions");
 
 export = class Bot extends Client {
   public config: ClientConfig;
@@ -46,6 +47,7 @@ export = class Bot extends Client {
         dataDir: "./data",
         wal: false,
       }),
+
       moderation: new Enmap({
         name: "moderation",
         dataDir: "./data",
@@ -53,6 +55,7 @@ export = class Bot extends Client {
       }),
     };
 
+    this.functions = new Functions(this);
     this.distube = new DisTube(this, {
       leaveOnEmpty: true,
       leaveOnFinish: true,

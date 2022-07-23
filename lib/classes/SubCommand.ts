@@ -2,7 +2,7 @@ import {
   ApplicationCommandOptionType,
   ChatInputCommandInteraction,
 } from "discord.js";
-import { BaseCommand, BaseCommandOptions } from "../BaseCommand";
+import { BaseCommand, BaseCommandOptions } from "./Command/BaseCommand";
 
 export interface SubCommandOptions extends BaseCommandOptions {
   commandName: string;
