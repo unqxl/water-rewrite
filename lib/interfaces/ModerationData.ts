@@ -15,5 +15,6 @@ export enum ModerationLogType {
   WARN = 4,
   UNWARN = 5,
   MUTE = 6,
-  UNMUTE = 7,
+  TEMPMUTE = 7,
+  UNMUTE = 8,
 }

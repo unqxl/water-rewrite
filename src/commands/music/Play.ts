@@ -121,10 +121,19 @@ export = class PlayCommand extends SubCommand {
       const url = `https://www.youtube.com/watch?v=${value}`;
 
       await command.deleteReply();
-      this.client.distube.play(memberVoice, url, {
-        member: command.member as GuildMember,
-        textChannel: command.channel as TextChannel,
-      });
+
+      try {
+        this.client.distube.play(memberVoice, url, {
+          member: command.member as GuildMember,
+          textChannel: command.channel as TextChannel,
+        });
+      } catch (error) {
+        int.reply({
+          content: `❌ | ${bold(error.message)}`,
+        });
+
+        return;
+      }
     });
 
     collector.on("end", async (collected, reason) => {

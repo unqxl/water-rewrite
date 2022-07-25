@@ -4,8 +4,8 @@ import {
   PermissionsString,
   LocalizationMap,
 } from "discord.js";
-import Bot = require("./Bot");
-import Logger = require("./Logger");
+import Bot = require("../Bot");
+import Logger = require("../Logger");
 
 export interface BaseContextCommandOptions {
   name: string;

@@ -108,7 +108,7 @@ export = class BanCommand extends SubCommand {
     embed.setDescription(`✅ | ${text}`);
     embed.setTimestamp();
 
-    moderation.createLog(command.guildId, {
+    moderation.createEntry(command.guildId, {
       type: ModerationLogType.BAN,
       executor: command.user.id,
       target: member.id,

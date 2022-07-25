@@ -1,6 +1,8 @@
 import {
   ApplicationCommandOptionType,
+  bold,
   ChatInputCommandInteraction,
+  EmbedBuilder,
 } from "discord.js";
 import { BaseCommand, BaseCommandOptions } from "./Command/BaseCommand";
 
@@ -24,5 +26,27 @@ export class SubCommand extends BaseCommand<SubCommandOptions> {
       name: cmd.user.username,
       iconURL: cmd.user.avatarURL({ size: 4096 }),
     };
+  }
+
+  errorEmbed(cmd: ChatInputCommandInteraction, message: string) {
+    const embed = new EmbedBuilder();
+    embed.setColor("Blurple");
+    embed.setAuthor(this.getEmbedAuthor(cmd));
+    embed.setDescription(`❌ | ${bold(message)}`);
+    embed.setTimestamp();
+
+    return embed;
+  }
+
+  embed(cmd: ChatInputCommandInteraction, message: string, emoji?: string) {
+    const embed = new EmbedBuilder();
+    embed.setColor("Blurple");
+    embed.setAuthor(this.getEmbedAuthor(cmd));
+    embed.setDescription(
+      typeof emoji === "string" ? `${emoji} | ${bold(message)}` : bold(message)
+    );
+    embed.setTimestamp();
+
+    return embed;
   }
 }

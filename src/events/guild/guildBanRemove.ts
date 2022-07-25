@@ -19,7 +19,7 @@ export = class GuildBanRemove extends Event {
     ).entries.first();
 
     const moderation = new ModerationSystem(this.client);
-    moderation.createLog(ban.guild.id, {
+    moderation.createEntry(ban.guild.id, {
       type: ModerationLogType.UNBAN,
       executor: entry.executor.id,
       target: ban.user.id,
