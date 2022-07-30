@@ -33,9 +33,9 @@ export = class MuteCommand extends SubCommand {
         {
           type: ApplicationCommandOptionType.String,
           name: "reason",
-          description: "The reason for the mute.",
+          description: 'The reason for the mute. (default: "No reason given")',
           descriptionLocalizations: {
-            ru: "Причина заглушения.",
+            ru: 'Причина заглушения. (по умолчанию: "No reason given")',
           },
           required: false,
         },
@@ -71,6 +71,7 @@ export = class MuteCommand extends SubCommand {
         const embed = this.errorEmbed(command, result.message);
         return command.reply({
           embeds: [embed],
+          ephemeral: true,
         });
       } else {
         const embed = this.embed(command, `${member.user.tag} has been muted.`);
@@ -91,6 +92,7 @@ export = class MuteCommand extends SubCommand {
         const embed = this.errorEmbed(command, result.message);
         return command.reply({
           embeds: [embed],
+          ephemeral: true,
         });
       } else {
         const embed = this.embed(

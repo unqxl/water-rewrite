@@ -39,9 +39,9 @@ export = class KickCommand extends SubCommand {
         {
           type: ApplicationCommandOptionType.String,
           name: "reason",
-          description: "The reason to kick.",
+          description: 'The reason to kick. (default: "No reason given")',
           descriptionLocalizations: {
-            ru: "Причина, по которой нужно кикнуть.",
+            ru: 'Причина, по которой нужно кикнуть. (по умолчанию: "No reason given")',
           },
         },
       ],
@@ -83,6 +83,7 @@ export = class KickCommand extends SubCommand {
 
         return command.reply({
           embeds: [embed],
+          ephemeral: true,
         });
       } else {
         const text = bold(error.message);
@@ -94,6 +95,7 @@ export = class KickCommand extends SubCommand {
 
         return command.reply({
           embeds: [embed],
+          ephemeral: true,
         });
       }
     }

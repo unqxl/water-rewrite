@@ -2,8 +2,8 @@ import Handler = require("@lib/classes/Handler");
 import Bot = require("@lib/classes/Bot");
 import { BaseCommand } from "@lib/classes/Command/BaseCommand";
 import { Command } from "@lib/classes/Command";
-import { ContextCommand } from "@lib/classes/Command/ContextCommand";
-import { SubCommand } from "@lib/classes/Command/SubCommand";
+import { ContextCommand } from "@lib/classes/ContextCommand";
+import { SubCommand } from "@lib/classes/SubCommand";
 import {
   ApplicationCommandData,
   ApplicationCommandOptionType,
@@ -86,7 +86,7 @@ export = class CommandHandler extends Handler {
         descriptionLocalizations: {
           ru: `Команды "${topLevelName}".`,
         },
-        // @ts-expect-error ignore
+        // @ts-ignore
         options: cmds.map((v) => v.options),
       };
 

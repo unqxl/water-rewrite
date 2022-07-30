@@ -1,3 +1,4 @@
+import { DiscordAPIError } from "discord.js";
 import Bot from "./Bot";
 
 export = class Functions {
@@ -11,5 +12,9 @@ export = class Functions {
     return string.replace(/%s/g, () => {
       return args.shift();
     });
+  }
+
+  isDiscordError(error: unknown): error is DiscordAPIError {
+    return error instanceof DiscordAPIError;
   }
 };

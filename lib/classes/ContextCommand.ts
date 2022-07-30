@@ -9,9 +9,9 @@ import { BaseContextCommand } from "./Command/BaseContextCommand";
 export class ContextCommand extends BaseContextCommand {
   getEmbedAuthor(context: ContextMenuCommandInteraction, member?: GuildMember) {
     return {
-      name: context.user.username || member?.user.username,
+      name: context?.user.username || member?.user.username,
       iconURL:
-        context.user.avatarURL({ size: 4096 }) ||
+        context?.user.avatarURL({ size: 4096 }) ||
         member?.user.avatarURL({ size: 4096 }),
     };
   }

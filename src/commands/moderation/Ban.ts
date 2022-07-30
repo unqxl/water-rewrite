@@ -39,9 +39,9 @@ export = class BanCommand extends SubCommand {
         {
           type: ApplicationCommandOptionType.String,
           name: "reason",
-          description: "The reason to ban.",
+          description: 'The reason to ban. (default: "No reason given")',
           descriptionLocalizations: {
-            ru: "Причина, по которой нужно забанить.",
+            ru: 'Причина, по которой нужно забанить. (по умолчанию: "No reason given")',
           },
         },
       ],
@@ -86,6 +86,7 @@ export = class BanCommand extends SubCommand {
 
         return command.reply({
           embeds: [embed],
+          ephemeral: true,
         });
       } else {
         const text = bold(error.message);
@@ -97,6 +98,7 @@ export = class BanCommand extends SubCommand {
 
         return command.reply({
           embeds: [embed],
+          ephemeral: true,
         });
       }
     }

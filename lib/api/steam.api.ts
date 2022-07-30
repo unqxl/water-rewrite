@@ -1,11 +1,18 @@
 import Bot = require("@lib/classes/Bot");
+import Logger = require("@lib/classes/Logger");
 import { request } from "undici";
 
 export = class SteamAPI {
   public client: Bot;
+  private logger: Logger;
 
   constructor(client: Bot) {
     this.client = client;
+    this.logger = new Logger();
+
+    if (typeof this.client.config.keys.steam === "undefined") {
+      throw this.logger.error('Steam API Key is not defined in "config.yaml"!');
+    }
   }
 
   async resolveByID(id: string): Promise<{ status: boolean; result: any }> {

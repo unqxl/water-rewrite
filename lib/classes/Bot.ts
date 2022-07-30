@@ -82,4 +82,8 @@ export = class Bot extends Client {
     this.EventHandler.handle();
     this.login(this.config.bot.token);
   }
+
+  sleep(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 };

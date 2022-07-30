@@ -5,6 +5,8 @@
     "strict": false,
     "moduleResolution": "Node",
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "sourceMap": false,

@@ -4,3 +4,6 @@ bot:
 keys:
   steam: "key" # Steam API Key
   faceit: "key" # FACEIT API Key
+twitch:
+  client_id: "key" # Twitch Client ID
+  client_secret: "key" # Twitch Client Secret

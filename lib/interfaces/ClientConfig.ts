@@ -8,4 +8,9 @@ export interface ClientConfig {
     steam?: string;
     faceit?: string;
   };
+
+  twitch?: {
+    client_id?: string;
+    client_secret?: string;
+  };
 }

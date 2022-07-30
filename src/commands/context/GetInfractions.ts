@@ -3,7 +3,7 @@ import {
   bold,
   ContextMenuCommandInteraction,
   GuildMember,
-  time
+  time,
 } from "discord.js";
 import ModerationSystem = require("@lib/systems/Moderation");
 
@@ -23,6 +23,17 @@ export = class GetInfractionsCommand extends ContextCommand {
 
     const moderation = new ModerationSystem(this.client);
     const entries = moderation.get(context.guildId, null, member);
+    if (!entries.length) {
+      const embed = this.errorEmbed(
+        context,
+        `${member.toString()} has no infractions!`
+      );
+
+      return context.reply({
+        embeds: [embed],
+        ephemeral: true,
+      });
+    }
 
     const embed = this.embed(
       context.member as GuildMember,

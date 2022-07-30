@@ -1,12 +1,21 @@
 import Bot = require("@lib/classes/Bot");
+import Logger = require("@lib/classes/Logger");
 import { request } from "undici";
 import SteamAPI = require("./steam.api");
 
 export = class FaceitAPI {
   public client: Bot;
+  private logger: Logger;
 
   constructor(client: Bot) {
     this.client = client;
+    this.logger = new Logger();
+
+    if (typeof this.client.config.keys.faceit === "undefined") {
+      throw this.logger.error(
+        'FACEIT API Key is not defined in "config.yaml"!'
+      );
+    }
   }
 
   async getPlayerByID(id: string) {
