@@ -1,4 +1,5 @@
 import Event = require("@lib/classes/Event");
+import { Manager } from "@djs-modules/giveaways";
 import { Command } from "@lib/classes/Command";
 import { ContextCommand } from "@lib/classes/Command/ContextCommand";
 import { Collection } from "discord.js";
@@ -21,6 +22,7 @@ declare module "discord.js" {
     };
 
     functions: Functions;
+    giveaways: Manager;
     distube: DisTube;
   }
 }

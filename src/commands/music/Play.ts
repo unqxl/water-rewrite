@@ -20,6 +20,7 @@ export = class PlayCommand extends SubCommand {
     super(client, {
       commandName: "music",
       name: "play",
+
       description: "Play a song from YouTube.",
       descriptionLocalizations: {
         ru: "Включить песню из YouTube.",
@@ -40,40 +41,14 @@ export = class PlayCommand extends SubCommand {
   }
 
   async run(command: ChatInputCommandInteraction, config: GuildData) {
-    const memberVoice = (command.member as GuildMember).voice.channel;
-    const botVoice = command.guild.members.me.voice.channel;
+    const clientMember = command.guild.members.me;
+    const member = command.member as GuildMember;
 
-    if (!memberVoice) {
-      const embed = new EmbedBuilder();
-      embed.setColor("Blurple");
-      embed.setAuthor({
-        name: command.user.tag,
-        iconURL: command.user.avatarURL(),
-      });
-      embed.setDescription(`❌ | ${bold("You aren't in a voice channel!")}`);
-      embed.setTimestamp();
-
-      return command.reply({
-        embeds: [embed],
-        ephemeral: true,
-      });
-    } else if (botVoice && memberVoice && memberVoice.id !== botVoice.id) {
-      const embed = new EmbedBuilder();
-      embed.setColor("Blurple");
-      embed.setAuthor({
-        name: command.user.tag,
-        iconURL: command.user.avatarURL(),
-      });
-      embed.setDescription(
-        `❌ | ${bold("You aren't in the same voice channel!")}`
-      );
-      embed.setTimestamp();
-
-      return command.reply({
-        embeds: [embed],
-        ephemeral: true,
-      });
-    }
+    await this.client.functions.checkVoiceChannel(
+      clientMember,
+      member,
+      command
+    );
 
     const query = command.options.getString("query");
     const results = (await this.client.distube.search(query, {
@@ -123,7 +98,7 @@ export = class PlayCommand extends SubCommand {
       await command.deleteReply();
 
       try {
-        this.client.distube.play(memberVoice, url, {
+        this.client.distube.play(member.voice.channel, url, {
           member: command.member as GuildMember,
           textChannel: command.channel as TextChannel,
         });

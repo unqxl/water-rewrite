@@ -1,8 +1,15 @@
 import CommandHandler = require("@lib/handlers/CommandHandler");
 import EventHandler = require("@lib/handlers/EventHandler");
 import { YtDlpPlugin } from "@distube/yt-dlp";
+import { Manager } from "@djs-modules/giveaways";
 import { ClientConfig } from "@lib/interfaces/ClientConfig";
-import { ActivityType, Client, Collection, IntentsBitField } from "discord.js";
+import {
+  ActivityType,
+  Client,
+  Collection,
+  IntentsBitField,
+  Partials,
+} from "discord.js";
 import DisTube from "distube";
 import Enmap from "enmap";
 import DiscordLogs = require("discord-logs");
@@ -22,6 +29,7 @@ export = class Bot extends Client {
         IntentsBitField.Flags.GuildMessages,
         IntentsBitField.Flags.GuildPresences,
         IntentsBitField.Flags.GuildVoiceStates,
+        IntentsBitField.Flags.GuildMessageReactions,
         IntentsBitField.Flags.MessageContent,
       ],
 
@@ -56,6 +64,20 @@ export = class Bot extends Client {
     };
 
     this.functions = new Functions(this);
+
+    this.giveaways = new Manager(this, {
+      dbPath: "./data/",
+      defaultOptions: {
+        botsCanWin: false,
+        endColor: "Green",
+        errorColor: "Red",
+        startColor: "Blurple",
+        reaction: "🎉",
+        winnersCount: 1,
+        mentionEveryone: true,
+      },
+    });
+
     this.distube = new DisTube(this, {
       leaveOnEmpty: true,
       leaveOnFinish: true,
