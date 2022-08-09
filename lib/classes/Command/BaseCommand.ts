@@ -3,6 +3,7 @@ import {
   ApplicationCommandOptionData,
   ChatInputCommandInteraction,
   LocalizationMap,
+  PermissionResolvable,
   PermissionsString,
 } from "discord.js";
 import Bot = require("../Bot");
@@ -16,8 +17,9 @@ export interface BaseCommandOptions {
   options?: ApplicationCommandOptionData[];
 
   ownerOnly?: boolean;
-  memberPermissions?: PermissionsString[];
   clientPermissions?: PermissionsString[];
+  defaultMemberPermissions?: PermissionResolvable;
+  dmPermission?: boolean;
 }
 
 export class BaseCommand<

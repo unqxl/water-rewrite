@@ -23,7 +23,7 @@ export = class KickCommand extends SubCommand {
         ru: "Кикает пользователя с сервера.",
       },
 
-      memberPermissions: ["KickMembers"],
+      defaultMemberPermissions: ["KickMembers"],
       clientPermissions: ["KickMembers"],
 
       options: [

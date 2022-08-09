@@ -19,6 +19,9 @@ export = class UnmuteCommand extends SubCommand {
         ru: "Разглушает пользователя.",
       },
 
+      defaultMemberPermissions: ["ModerateMembers"],
+      clientPermissions: ["ManageRoles"],
+
       options: [
         {
           type: ApplicationCommandOptionType.User,

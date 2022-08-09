@@ -21,12 +21,16 @@ export = class EventHandler extends Handler {
       const EventFile = (await import(path.resolve(file))).default;
       const event: Event = new EventFile();
 
-      if (event.emitter !== "client") {
-        this.client[event.emitter].on(event.name, (...args) => {
+      if (event.emitter === "client") {
+        this.client.on(event.name, (...args) => {
+          event.run(...args);
+        });
+      } else if (event.emitter === "process") {
+        process.on(event.name, (...args) => {
           event.run(...args);
         });
       } else {
-        this.client.on(event.name, (...args) => {
+        this.client[event.emitter].on(event.name, (...args) => {
           event.run(...args);
         });
       }

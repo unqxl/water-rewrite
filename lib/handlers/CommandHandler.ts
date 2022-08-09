@@ -56,6 +56,7 @@ export = class CommandHandler extends Handler {
         const data: ApplicationCommandData = {
           type: ApplicationCommandType.User,
           name: command.name,
+          dmPermission: false,
         };
 
         await this.client.application.commands.create(data);
@@ -69,6 +70,7 @@ export = class CommandHandler extends Handler {
           descriptionLocalizations: {
             ru: command.options.description ?? "Без описания.",
           },
+          dmPermission: false,
         };
 
         await this.client.application.commands.create(data);
@@ -88,6 +90,7 @@ export = class CommandHandler extends Handler {
         },
         // @ts-ignore
         options: cmds.map((v) => v.options),
+        dmPermission: false,
       };
 
       await this.client.application.commands.create(data);
@@ -105,6 +108,7 @@ export = class CommandHandler extends Handler {
           ru: `Подкоманды "${groupName}".`,
         },
         options: cmds.map((v) => v.options),
+        dmPermission: false,
       };
 
       groupCache.push(groupData);
@@ -120,6 +124,7 @@ export = class CommandHandler extends Handler {
           ...groupCache,
           ...subCommands[topLevelName].map((v) => v.options),
         ],
+        dmPermission: false,
       };
 
       await this.client.application.commands.create(data);

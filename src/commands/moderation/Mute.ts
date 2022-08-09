@@ -20,6 +20,9 @@ export = class MuteCommand extends SubCommand {
         ru: "Заглушает пользователя.",
       },
 
+      defaultMemberPermissions: ["ModerateMembers"],
+      clientPermissions: ["ManageRoles"],
+
       options: [
         {
           type: ApplicationCommandOptionType.User,

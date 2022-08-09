@@ -18,6 +18,9 @@ export = class PruneCommand extends SubCommand {
         ru: "Кикает пользователей с сервера, которые не отправили сообщение за определенное время.",
       },
 
+      defaultMemberPermissions: ["KickMembers"],
+      clientPermissions: ["KickMembers"],
+
       options: [
         {
           type: ApplicationCommandOptionType.Boolean,

@@ -17,6 +17,9 @@ export = class ClearCommand extends SubCommand {
         ru: "Очищает чат.",
       },
 
+      defaultMemberPermissions: ["ManageMessages"],
+      clientPermissions: ["ManageMessages"],
+
       options: [
         {
           type: ApplicationCommandOptionType.Number,

@@ -23,7 +23,7 @@ export = class BanCommand extends SubCommand {
         ru: "Банит пользователя сервера.",
       },
 
-      memberPermissions: ["BanMembers"],
+      defaultMemberPermissions: ["BanMembers"],
       clientPermissions: ["BanMembers"],
 
       options: [
