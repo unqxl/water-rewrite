@@ -150,17 +150,17 @@ export = class DevPanelCommand extends SubCommand {
           filter: ({ user }) => user.id === command.user.id,
         });
 
-        collector.on("collect", (btn) => {
+        collector.on("collect", async (btn) => {
           if (!btn.isButton()) return;
 
           if (btn.customId === "restart_bot") {
-            new_msg.edit({
+            await new_msg.edit({
               components: [],
             });
 
             process.exit();
           } else if (btn.customId === "delete") {
-            new_msg.delete();
+            await new_msg.delete();
             return;
           }
         });

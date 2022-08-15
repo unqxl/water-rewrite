@@ -22,7 +22,7 @@ export = class GetInfractionsCommand extends ContextCommand {
     if (!member) return;
 
     const moderation = new ModerationSystem(this.client);
-    const entries = moderation.get(context.guildId, null, member);
+    var entries = moderation.get(context.guildId, null, member);
     if (!entries.length) {
       const embed = this.errorEmbed(
         context,
@@ -51,6 +51,10 @@ export = class GetInfractionsCommand extends ContextCommand {
       7: "Temp Mute",
       8: "Unmute",
     };
+
+    if (entries.length >= 25) {
+      entries = entries.slice(0, 24);
+    }
 
     for (const entry of entries) {
       const timestamp = Math.ceil(entry.timestamp / 1000);
