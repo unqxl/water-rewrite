@@ -1,4 +1,5 @@
 import { ContextCommand } from "@lib/classes/ContextCommand";
+import { create } from "@lib/classes/Paginator";
 import {
   bold,
   ContextMenuCommandInteraction,
@@ -17,7 +18,7 @@ export = class GetInfractionsCommand extends ContextCommand {
     });
   }
 
-  run(context: ContextMenuCommandInteraction) {
+  async run(context: ContextMenuCommandInteraction) {
     const member = context.guild.members.cache.get(context.targetId);
     if (!member) return;
 
@@ -52,26 +53,18 @@ export = class GetInfractionsCommand extends ContextCommand {
       8: "Unmute",
     };
 
-    if (entries.length >= 25) {
-      entries = entries.slice(0, 24);
-    }
-
-    for (const entry of entries) {
+    const data = entries.map((entry) => {
       const timestamp = Math.ceil(entry.timestamp / 1000);
       const moderator = context.guild.members.cache.get(entry.executor);
 
-      embed.addFields({
-        name: entryTypes[entry.type],
-        value: [
-          `› ${bold("Moderator")}: ${bold(moderator.toString())}`,
-          `› ${bold("Reason")}: ${bold(entry.reason)}`,
-          `› ${bold("Timestamp")}: ${bold(time(timestamp))}`,
-        ].join("\n"),
-      });
-    }
-
-    return context.reply({
-      embeds: [embed],
+      return [
+        `› ${bold(entryTypes[entry.type])}:`,
+        `» ${bold("Moderator")}: ${bold(moderator.toString())}`,
+        `» ${bold("Reason")}: ${bold(entry.reason)}`,
+        `» ${bold("Timestamp")}: ${bold(time(timestamp))}`,
+      ].join("\n");
     });
+
+    return await create(context, data, embed);
   }
 };

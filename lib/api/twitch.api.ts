@@ -1,5 +1,6 @@
 import Bot = require("@lib/classes/Bot");
 import Logger = require("@lib/classes/Logger");
+import { Guild } from "discord.js";
 import { request } from "undici";
 
 export = class TwitchAPI {
@@ -96,6 +97,24 @@ export = class TwitchAPI {
     }
 
     return body.data[0];
+  }
+
+  async check(guild: Guild) {
+    const config = this.client.databases.guilds.get(guild.id);
+    const { streamers } = config.systems.twitch;
+
+    for (const streamer of streamers) {
+      const data = await this.getStreamerData(streamer.name);
+      if (!data) continue;
+
+      const stream = await this.getStreamData(streamer.name);
+      if (!stream) continue;
+
+      if (streamer.last_stream === stream.id) continue;
+      streamer.last_stream = stream.id;
+
+      this.client.emit("twitchLive", config, streamer, data);
+    }
   }
 };
 

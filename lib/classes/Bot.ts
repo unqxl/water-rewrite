@@ -3,13 +3,7 @@ import EventHandler = require("@lib/handlers/EventHandler");
 import { YtDlpPlugin } from "@distube/yt-dlp";
 import { Manager } from "@djs-modules/giveaways";
 import { ClientConfig } from "@lib/interfaces/ClientConfig";
-import {
-  ActivityType,
-  Client,
-  Collection,
-  IntentsBitField,
-  Partials,
-} from "discord.js";
+import { ActivityType, Client, Collection, IntentsBitField } from "discord.js";
 import DisTube from "distube";
 import Enmap from "enmap";
 import DiscordLogs = require("discord-logs");
@@ -65,6 +59,7 @@ export = class Bot extends Client {
 
     this.functions = new Functions(this);
 
+    // @ts-expect-error
     this.giveaways = new Manager(this, {
       dbPath: "./data/",
       defaultOptions: {
@@ -90,7 +85,7 @@ export = class Bot extends Client {
       searchCooldown: 5,
       searchSongs: 10,
 
-      plugins: [new YtDlpPlugin({ update: false })],
+      plugins: [new YtDlpPlugin({ update: true })],
     });
 
     this.CommandHandler = new CommandHandler(this);

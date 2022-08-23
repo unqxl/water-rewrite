@@ -18,6 +18,8 @@ export = class EventHandler extends Handler {
     if (!files.length) return this.logger.warn("No events found!");
 
     for (const file of files) {
+      if (file.includes("systems")) continue;
+
       const EventFile = (await import(path.resolve(file))).default;
       const event: Event = new EventFile();
 

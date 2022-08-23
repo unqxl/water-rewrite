@@ -13,7 +13,7 @@
     "declaration": false,
     "outDir": "dist/",
     "baseUrl": ".",
-    "types": ["./types/"],
+    "types": ["./types"],
     "paths": {
       "@lib/*": ["lib/*"],
       "@src/*": ["src/*"]

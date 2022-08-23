@@ -75,10 +75,12 @@ export = class GiveawayCreateCommand extends SubCommand {
     const channel = command.options.getChannel("channel") as
       | TextChannel
       | NewsChannel;
+      
     const time = ms(command.options.getString("time"));
     const prize = command.options.getString("prize");
     const winners = command.options.getNumber("winners");
 
+    // @ts-expect-error
     this.client.giveaways.create(channel, time, winners, prize);
 
     return command.reply({
