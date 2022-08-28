@@ -28,3 +28,4 @@
 <strong>If you want to use the APIs provided by the bot, or want to make your own, you can add keys to the configuration file you set up earlier.</strong> <br />
 <strong>› Steam API: [Click](https://steamcommunity.com/dev/apikey)</strong> <br />
 <strong>› FACEIT API: [Click](https://developers.faceit.com/)</strong> <br />
+<strong>› Twitch API: [Click](https://dev.twitch.tv/)</strong> <br />

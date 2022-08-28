@@ -15,7 +15,7 @@ import {
 export = class AutoRoleAddCommand extends SubCommand {
   constructor(client: Bot) {
     super(client, {
-      group: "auto_role",
+      group: "autorole",
       commandName: "configuration",
       name: "add",
 

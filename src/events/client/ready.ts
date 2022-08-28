@@ -7,6 +7,7 @@ export = class Ready extends Event {
 
   async run() {
     if (!this.client.application.owner) await this.client.application.fetch();
+    this.client.application.commands.set([]);
 
     this.init();
 

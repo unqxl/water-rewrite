@@ -59,7 +59,6 @@ export = class Bot extends Client {
 
     this.functions = new Functions(this);
 
-    // @ts-expect-error
     this.giveaways = new Manager(this, {
       dbPath: "./data/",
       defaultOptions: {

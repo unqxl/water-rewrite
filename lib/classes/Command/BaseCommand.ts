@@ -1,6 +1,7 @@
 import { GuildData } from "@lib/interfaces/GuildData";
 import {
   ApplicationCommandOptionData,
+  AutocompleteInteraction,
   ChatInputCommandInteraction,
   LocalizationMap,
   PermissionResolvable,
@@ -45,6 +46,8 @@ export class BaseCommand<
   get options(): TOptions {
     return this._options;
   }
+
+  autocomplete(command: AutocompleteInteraction, config: GuildData) {}
 
   run(command: ChatInputCommandInteraction, config: GuildData) {
     throw this.logger.error(
