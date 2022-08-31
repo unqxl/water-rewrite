@@ -22,7 +22,7 @@
     "discord-logs": "unqxl/discord-logs",
     "discord.js": "^14.3.0",
     "distube": "^4.0.3",
-    "enmap": "^5.9.0",
+    "enmap": "^5.9.1",
     "error-stack-parser": "^2.1.4",
     "glob": "^8.0.3",
     "module-alias": "^2.2.2",
@@ -36,9 +36,9 @@
     "yaml": "^2.1.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.1.1",
+    "@commitlint/cli": "^17.1.2",
     "@commitlint/config-angular": "^17.1.0",
-    "@types/glob": "^7.2.0",
+    "@types/glob": "^8.0.0",
     "@types/ms": "^0.7.31",
     "husky": "^8.0.1",
     "is-ci": "^3.0.1",

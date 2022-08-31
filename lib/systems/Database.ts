@@ -32,13 +32,13 @@ export = class Database {
       },
       texts: {
         welcome:
-          "Welcome to the server, %s!\nThere's %s members in this server now.",
+          "Welcome to the server, {member}!\nThere's {member_count} members in this server now.",
         goodbye:
-          "It's time to say goodbye to %s!\nThere's %s members in this server now...",
+          "It's time to say goodbye to {member}!\nThere's {member_count} members in this server now...",
         boost:
-          "This server has been boosted by %s!\nThere's %s boosts in this server now.",
+          "This server has been boosted by {member}!\nThere's {boost_count} boosts in this server now.",
         unboost:
-          "This server has been unboosted by %s!\nThere's %s boosts in this server now.",
+          "This server has been unboosted by {member}!\nThere's {boost_count} boosts in this server now.",
       },
     });
 

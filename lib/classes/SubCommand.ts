@@ -38,13 +38,31 @@ export class SubCommand extends BaseCommand<SubCommandOptions> {
     return embed;
   }
 
-  embed(cmd: ChatInputCommandInteraction, message: string, emoji?: string) {
+  embed(
+    cmd: ChatInputCommandInteraction,
+    message: string,
+    emoji?: string,
+    _bold?: boolean
+  ) {
+    var description = "";
+    if (typeof emoji === "string") {
+      if (_bold === true) {
+        description = `${emoji} | ${bold(message)}`;
+      } else {
+        description = `${emoji} | ${message}`;
+      }
+    } else {
+      if (_bold === true) {
+        description = bold(message);
+      } else {
+        description = message;
+      }
+    }
+
     const embed = new EmbedBuilder();
     embed.setColor("Blurple");
     embed.setAuthor(this.getEmbedAuthor(cmd));
-    embed.setDescription(
-      typeof emoji === "string" ? `${emoji} | ${bold(message)}` : bold(message)
-    );
+    embed.setDescription(description);
     embed.setTimestamp();
 
     return embed;
