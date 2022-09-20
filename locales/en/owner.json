@@ -1,0 +1,26 @@
+{
+  "dev_panel": {
+    "time_units": {
+      "days": "days",
+      "day": "day",
+
+      "hours": "hours",
+      "hour": "hour",
+
+      "minutes": "minutes",
+      "minute": "minute",
+
+      "seconds": "seconds",
+      "second": "second"
+    },
+
+    "fields": {
+      "hosting_stats": "Hosting Statistics",
+      "server_uptime": "Server Uptime",
+      "started_at": "Started at",
+      "versions": "Library Versions",
+      "memory": "Memory",
+      "platform": "Operational System"
+    }
+  }
+}

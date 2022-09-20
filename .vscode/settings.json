@@ -1,0 +1,7 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "window.title": "[${rootName}] ${activeEditorShort}",
+  "files.autoSave": "onWindowChange" 
+}

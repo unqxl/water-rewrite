@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "strict": false,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "declaration": false,
+    "outDir": "dist/",
+    "baseUrl": ".",
+    "types": ["./types", "node"],
+    "paths": {
+      "@lib/*": ["lib/*"],
+      "@src/*": ["src/*"],
+      "@locales/*": ["locales/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

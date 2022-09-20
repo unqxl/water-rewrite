@@ -1,0 +1,26 @@
+{
+  "dev_panel": {
+    "time_units": {
+      "days": "дней",
+      "day": "день",
+
+      "hours": "часов",
+      "hour": "час",
+
+      "minutes": "минут",
+      "minute": "минута",
+
+      "seconds": "секунд",
+      "second": "секунд(ы)"
+    },
+
+    "fields": {
+      "hosting_stats": "Статистика Хостинга",
+      "server_uptime": "Время работы сервера",
+      "started_at": "Дата запуска",
+      "versions": "Версии библиотек",
+      "memory": "Память",
+      "platform": "Операционная система"
+    }
+  }
+}
