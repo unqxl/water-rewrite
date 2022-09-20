@@ -92,23 +92,23 @@ export = class DevPanelCommand extends SubCommand {
 
         const embed = new EmbedBuilder();
         embed.setColor("Blurple");
-        embed.setTitle(fields.stats);
+        embed.setTitle("Hosting Statistics");
         embed.setAuthor(this.getEmbedAuthor(command));
         embed.addFields(
           {
-            name: `› ${fields.server_uptime}`,
+            name: "› Server Uptime",
             value: [
               `» **${serverUptime.days} ${
-                serverUptime.days > 1 ? units.days : units.day
+                serverUptime.days > 1 ? "days" : "day"
               }**`,
               `» **${serverUptime.hours} ${
-                serverUptime.hours > 1 ? units.hours : units.hour
+                serverUptime.hours > 1 ? "hours" : "hour"
               }**`,
               `» **${serverUptime.minutes} ${
-                serverUptime.minutes > 1 ? units.minutes : units.minute
+                serverUptime.minutes > 1 ? "minutes" : "minute"
               }**`,
               `» **${serverUptime.seconds} ${
-                serverUptime.minutes > 1 ? units.seconds : units.second
+                serverUptime.minutes > 1 ? "seconds" : "second"
               }**`,
             ].join("\n"),
             inline: true,

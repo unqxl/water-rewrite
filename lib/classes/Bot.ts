@@ -14,7 +14,7 @@ import { YtDlpPlugin } from "@distube/yt-dlp";
 import DisTube from "distube";
 
 //? I18Next
-import i18next, { TFunction } from "i18next";
+import i18next from "i18next";
 import Backend from "i18next-fs-backend";
 
 export = class Bot extends Client {
