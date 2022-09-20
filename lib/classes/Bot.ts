@@ -16,8 +16,8 @@ import DisTube from "distube";
 //? I18Next
 import i18next from "i18next";
 import Backend from "i18next-fs-backend";
+import { readdirSync } from "node:fs";
 import { join } from "node:path";
-import { lstatSync, readdirSync } from "node:fs";
 
 export = class Bot extends Client {
   public config: ClientConfig;
