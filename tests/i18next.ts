@@ -9,7 +9,8 @@ i18next.use(FSBackend).init(
     fallbackLng: "en",
     lng: "en",
 
-    defaultNS: "nothing",
+    defaultNS: "owner",
+    ns: "owner",
 
     backend: {
       loadPath: "../locales/{{lng}}/{{ns}}.json",
@@ -19,7 +20,7 @@ i18next.use(FSBackend).init(
     returnObjects: true,
   },
   async (err, t) => {
-    const v = t("owner:dev_panel");
+    const v = t("owner:dev_panel:fields:memory");
     console.log(v);
   }
 );

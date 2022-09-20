@@ -16,6 +16,8 @@ import DisTube from "distube";
 //? I18Next
 import i18next from "i18next";
 import Backend from "i18next-fs-backend";
+import { join } from "node:path";
+import { lstatSync, readdirSync } from "node:fs";
 
 export = class Bot extends Client {
   public config: ClientConfig;
@@ -105,17 +107,23 @@ export = class Bot extends Client {
     DiscordLogs(this);
 
     this.EventHandler.handle();
-    this.login(this.config.bot.token);
+
+    const namespaces = [];
+    const english_locale = join(__dirname, "..", "..", "locales", "en");
+    const locale_folder = await readdirSync(english_locale);
+
+    for (const file of locale_folder) {
+      namespaces.push(file.replace(".json", ""));
+    }
 
     await i18next.use(Backend).init({
       debug: false,
       initImmediate: false,
 
-      fallbackLng: "en-US",
-      lng: "en-US",
+      fallbackLng: "en",
+      lng: "en",
 
-      defaultNS: "nothing",
-      ns: "nothing",
+      ns: namespaces,
 
       backend: {
         loadPath: "../locales/{{lng}}/{{ns}}.json",
@@ -124,6 +132,7 @@ export = class Bot extends Client {
     });
 
     this.i18n = i18next;
+    this.login(this.config.bot.token);
   }
 
   sleep(ms: number) {

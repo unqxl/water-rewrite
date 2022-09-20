@@ -46,13 +46,6 @@ export = class DevPanelCommand extends SubCommand {
       async (data) => {
         const commitHash = await getCommitHash();
 
-        const serverUptime = {
-          days: Math.floor(data.time.uptime / 86400),
-          hours: Math.floor((data.time.uptime % 86400) / 3600),
-          minutes: Math.floor((data.time.uptime % 3600) / 60),
-          seconds: Math.floor(data.time.uptime % 60),
-        };
-
         const cpuManufacturer = data.cpu.manufacturer;
         const cpuBrand = data.cpu.brand;
         const cpuSpeed = data.cpu.speed;
@@ -68,51 +61,18 @@ export = class DevPanelCommand extends SubCommand {
         const osArch = data.osInfo.arch;
 
         const fields = {
-          stats: t("owner.fields:hosting_stats"),
-          server_uptime: t("owner.fields:server_uptime"),
-          started_at: t("owner.fields:started_at"),
-          versions: t("owner.fields:versions"),
-          memory: t("owner.fields:memory"),
-          platform: t("owner.fields:platform"),
-        };
-
-        const units = {
-          days: t("owner.time_units:days"),
-          day: t("owner.time_units:day"),
-
-          hours: t("owner.time_units:hours"),
-          hour: t("owner.time_units:hour"),
-
-          minutes: t("owner.time_units:minutes"),
-          minute: t("owner.time_units:minute"),
-
-          seconds: t("owner.time_units:seconds"),
-          second: t("owner.time_units:second"),
+          stats: t("owner:dev_panel:fields:hosting_stats"),
+          started_at: t("owner:dev_panel:fields:started_at"),
+          versions: t("owner:dev_panel:fields:versions"),
+          memory: t("owner:dev_panel:fields:memory"),
+          platform: t("owner:dev_panel:fields:platform"),
         };
 
         const embed = new EmbedBuilder();
         embed.setColor("Blurple");
-        embed.setTitle("Hosting Statistics");
+        embed.setTitle(fields.stats);
         embed.setAuthor(this.getEmbedAuthor(command));
         embed.addFields(
-          {
-            name: "› Server Uptime",
-            value: [
-              `» **${serverUptime.days} ${
-                serverUptime.days > 1 ? "days" : "day"
-              }**`,
-              `» **${serverUptime.hours} ${
-                serverUptime.hours > 1 ? "hours" : "hour"
-              }**`,
-              `» **${serverUptime.minutes} ${
-                serverUptime.minutes > 1 ? "minutes" : "minute"
-              }**`,
-              `» **${serverUptime.seconds} ${
-                serverUptime.minutes > 1 ? "seconds" : "second"
-              }**`,
-            ].join("\n"),
-            inline: true,
-          },
           {
             name: `› ${fields.started_at}`,
             value: bold(time(this.client.readyAt)),
