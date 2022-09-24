@@ -20,6 +20,7 @@ export = class DevPanelCommand extends SubCommand {
     super(client, {
       commandName: "owner",
       name: "panel",
+
       description: "Panel that shows bot's hosting statistics.",
       descriptionLocalizations: {
         ru: "Панель, которая показывает статистику хостинга бота.",

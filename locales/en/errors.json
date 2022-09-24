@@ -1,0 +1,4 @@
+{
+  "forOwnerOnly": "This command is intended for bot owners!",
+  "localeNotFound": "Localization with code \"{{code}}\" is not marked as supported!"
+}

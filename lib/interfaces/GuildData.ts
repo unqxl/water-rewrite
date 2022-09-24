@@ -5,7 +5,7 @@ export interface GuildData {
   texts: GuildTexts;
 }
 
-type GuildSupportedLocales = "en-US" | "ru-RU" | "uk-UA";
+export type GuildSupportedLocales = "en-US" | "ru-RU" | "uk-UA";
 
 type GuildRoles = {
   auto: string;
