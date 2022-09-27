@@ -1,11 +1,9 @@
 {
-  "dev_panel": {
-    "fields": {
-      "hosting_stats": "Статистика Хостинга",
-      "started_at": "Дата запуска",
-      "versions": "Версии библиотек",
-      "memory": "Память",
-      "platform": "Операционная система"
-    }
-  }
+  "dev_panel.fields.hosting_stats": "Статистика Хостинга",
+  "dev_panel.fields.started_at": "Дата запуска",
+  "dev_panel.fields.versions": "Версии библиотек",
+  "dev_panel.fields.memory": "Память",
+  "dev_panel.fields.platform": "Операционная система",
+
+  "reload_languages.success": "Языковые пакеты были успешно перезагружены!"
 }

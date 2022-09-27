@@ -62,11 +62,11 @@ export = class DevPanelCommand extends SubCommand {
         const osArch = data.osInfo.arch;
 
         const fields = {
-          stats: t("owner:dev_panel:fields:hosting_stats"),
-          started_at: t("owner:dev_panel:fields:started_at"),
-          versions: t("owner:dev_panel:fields:versions"),
-          memory: t("owner:dev_panel:fields:memory"),
-          platform: t("owner:dev_panel:fields:platform"),
+          stats: t("owner:dev_panel.field.shosting_stats"),
+          started_at: t("owner:dev_panel.fields.started_at"),
+          versions: t("owner:dev_panel.fields.versions"),
+          memory: t("owner:dev_panel.fields.memory"),
+          platform: t("owner:dev_panel.fields.platform"),
         };
 
         const embed = new EmbedBuilder();
@@ -97,9 +97,7 @@ export = class DevPanelCommand extends SubCommand {
           },
           {
             name: `› ${fields.memory}`,
-            value: [`» **Total: ${memTotal}**`, `» **Used: ${memUsed}**`].join(
-              "\n"
-            ),
+            value: `» ** ${memUsed} (${memTotal})**`,
             inline: true,
           },
           {

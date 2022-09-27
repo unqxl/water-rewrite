@@ -1,3 +1,17 @@
 {
-  "language.changed": "The localization has been changed to \"{{code}}\"!"
+  "language.changed": "The localization has been changed to \"{{code}}\"!",
+
+  "config.text": "Configuration for \"{{name}}\"",
+  "config.field.localization": "Bot's Localization",
+  "config.fields.guild_roles": "Guild Roles",
+  "config.subfield.auto_role": "Auto Role",
+  "config.subfield.mute_role": "Mute Role",
+  "config.fields.systems": "Systems",
+  "config.subfield.twitch_system": "Twitch Notifications",
+  "config.subfield.twitch_streamers": "Twitch Streamers",
+  "config.fields.texts": "Texts",
+  "config.subfield.welcome_text": "Welcome Text",
+  "config.subfield.goodbye_text": "Goodbye Text",
+  "config.subfield.boost_text": "Boost Text",
+  "config.subfield.unboost_text": "Unboost Text"
 }

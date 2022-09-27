@@ -28,7 +28,7 @@ export = class ReloadLanguagesCommand extends SubCommand {
 
     const embed = this.embed(
       command,
-      t("owner:reload_languages:success"),
+      t("owner:reload_languages.success"),
       "✅"
     );
 

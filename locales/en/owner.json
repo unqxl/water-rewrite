@@ -1,14 +1,9 @@
 {
-  "dev_panel": {
-    "fields": {
-      "hosting_stats": "Hosting Statistics",
-      "started_at": "Started at",
-      "versions": "Library Versions",
-      "memory": "Memory",
-      "platform": "Operational System"
-    }
-  },
-  "reload_languages": {
-    "success": "The language packs have been successfully reloaded!"
-  }
+  "dev_panel.fields.hosting_stats": "Hosting Statistics",
+  "dev_panel.fields.started_at": "Started at",
+  "dev_panel.fields.versions": "Library Versions",
+  "dev_panel.fields.memory": "Memory",
+  "dev_panel.fields.platform": "Operational System",
+
+  "reload_languages.success": "The language packs have been successfully reloaded!"
 }

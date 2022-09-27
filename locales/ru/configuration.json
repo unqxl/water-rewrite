@@ -1,3 +1,17 @@
 {
-  "language.changed": "Локализация была изменена на \"{{code}}\"!"
+  "language.changed": "Локализация была изменена на \"{{code}}\"!",
+
+  "config.text": "Конфигурация \"{{name}}\"",
+  "config.field.localization": "Локализация бота",
+  "config.fields.guild_roles": "Роли Сервера",
+  "config.subfield.auto_role": "Авто-Роль",
+  "config.subfield.mute_role": "Мут-Роль",
+  "config.fields.systems": "Системы",
+  "config.subfield.twitch_system": "Twitch Оповещения",
+  "config.subfield.twitch_streamers": "Стримеры Twitch",
+  "config.fields.texts": "Тексты",
+  "config.subfield.welcome_text": "Приветственный текст",
+  "config.subfield.goodbye_text": "Прощальный текст",
+  "config.subfield.boost_text": "Текст при бусте",
+  "config.subfield.unboost_text": "Текст при окончании буста"
 }
