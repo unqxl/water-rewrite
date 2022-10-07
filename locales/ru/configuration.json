@@ -13,5 +13,17 @@
   "config.subfield.welcome_text": "Приветственный текст",
   "config.subfield.goodbye_text": "Прощальный текст",
   "config.subfield.boost_text": "Текст при бусте",
-  "config.subfield.unboost_text": "Текст при окончании буста"
+  "config.subfield.unboost_text": "Текст при окончании буста",
+
+  "autorole.phrase": "Выберите одну из доступных ролей:",
+  "autorole.already_in_list": "Роль {{role}} уже является автоматической!",
+  "autorole.not_setted": "Сервер не имеет автоматически выдаваемой роли!",
+  "autorole.added": "Роль {{role}} была успешно установлена автоматической!",
+  "autorole.removed": "Авто-Роль сервера была удалена из базы!",
+
+  "muterole.phrase": "Выберите одну из доступных ролей:",
+  "muterole.already_in_list": "Роль {{role}} уже является автоматической!",
+  "muterole.not_setted": "Сервер не имеет автоматически выдаваемой роли!",
+  "muterole.added": "Роль {{role}} была успешно установлена автоматической!",
+  "muterole.removed": "Мут-Роль сервера была удалена из базы!"
 }

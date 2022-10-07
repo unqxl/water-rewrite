@@ -13,5 +13,17 @@
   "config.subfield.welcome_text": "Welcome Text",
   "config.subfield.goodbye_text": "Goodbye Text",
   "config.subfield.boost_text": "Boost Text",
-  "config.subfield.unboost_text": "Unboost Text"
+  "config.subfield.unboost_text": "Unboost Text",
+
+  "autorole.phrase": "Choose one of the possible roles:",
+  "autorole.already_in_list": "The {{role}} role is already set as automatic!",
+  "autorole.not_setted": "The server does not have an automatically assigned role!",
+  "autorole.added": "The {{role}} role has been successfully set as automatic.",
+  "autorole.removed": "The server's Auto-Role has been removed from Database!",
+
+  "muterole.phrase": "Choose one of the possible roles:",
+  "muterole.already_in_list": "The {{role}} role is already set as automatic!",
+  "muterole.not_setted": "The server does not have an automatically assigned role!",
+  "muterole.added": "The {{role}} role has been successfully set as automatic.",
+  "muterole.removed": "The server's Mute-Role has been removed from Database!"
 }

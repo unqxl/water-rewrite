@@ -11,6 +11,7 @@ import {
   SelectMenuBuilder,
   SelectMenuOptionBuilder,
 } from "discord.js";
+import { TFunction } from "i18next";
 
 export = class MuteRoleSetCommand extends SubCommand {
   constructor(client: Bot) {
@@ -28,7 +29,11 @@ export = class MuteRoleSetCommand extends SubCommand {
     });
   }
 
-  async run(command: ChatInputCommandInteraction, config: GuildData) {
+  async run(
+    command: ChatInputCommandInteraction,
+    config: GuildData,
+    t: TFunction
+  ) {
     var _roles = command.guild.roles.cache.filter(
       (x) => !x.tags.botId && x.id !== command.guild.roles.everyone.id
     );
@@ -53,7 +58,7 @@ export = class MuteRoleSetCommand extends SubCommand {
     row.addComponents(menu);
 
     await command.reply({
-      content: bold("Choose one of the possible roles:"),
+      content: bold(t("configuration:muterole.phrase")),
       components: [row],
     });
 
@@ -72,7 +77,9 @@ export = class MuteRoleSetCommand extends SubCommand {
       if (config.roles.auto === id) {
         const embed = this.errorEmbed(
           command,
-          `The ${roleMention(id)} role is already set as mute role!`
+          t("configuration:muterole.already_in_list", {
+            role: roleMention(id),
+          })
         );
 
         int.update({
@@ -88,7 +95,9 @@ export = class MuteRoleSetCommand extends SubCommand {
 
       const embed = this.embed(
         command,
-        `The ${roleMention(id)} role has been successfully set as mute role.`,
+        t("configuration:muterole.added", {
+          role: roleMention(id),
+        }),
         "✅"
       );
 

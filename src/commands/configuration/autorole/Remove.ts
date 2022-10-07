@@ -2,6 +2,7 @@ import Bot = require("@lib/classes/Bot");
 import { SubCommand } from "@lib/classes/SubCommand";
 import { GuildData } from "@lib/interfaces/GuildData";
 import { ChatInputCommandInteraction } from "discord.js";
+import { TFunction } from "i18next";
 
 export = class AutoRoleRemoveCommand extends SubCommand {
   constructor(client: Bot) {
@@ -19,11 +20,15 @@ export = class AutoRoleRemoveCommand extends SubCommand {
     });
   }
 
-  async run(command: ChatInputCommandInteraction, config: GuildData) {
+  async run(
+    command: ChatInputCommandInteraction,
+    config: GuildData,
+    t: TFunction
+  ) {
     if (config.roles.auto === null) {
       const embed = this.errorEmbed(
         command,
-        "The server does not have an automatically assigned role!"
+        t("configuration:autorole.not_setted")
       );
 
       return command.reply({
@@ -33,7 +38,11 @@ export = class AutoRoleRemoveCommand extends SubCommand {
     }
 
     config.roles.auto = null;
-    const embed = this.embed(command, "The Auto-Role has been removed!", "✅");
+    const embed = this.embed(
+      command,
+      t("configuration:autorole.removed"),
+      "✅"
+    );
 
     return command.reply({
       embeds: [embed],
