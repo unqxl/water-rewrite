@@ -2,6 +2,7 @@ import Bot = require("@lib/classes/Bot");
 import { SubCommand } from "@lib/classes/SubCommand";
 import { GuildData } from "@lib/interfaces/GuildData";
 import { ChatInputCommandInteraction } from "discord.js";
+import { TFunction } from "i18next";
 
 export = class TwitchEnableCommand extends SubCommand {
   constructor(client: Bot) {
@@ -19,11 +20,18 @@ export = class TwitchEnableCommand extends SubCommand {
     });
   }
 
-  async run(command: ChatInputCommandInteraction, config: GuildData) {
+  async run(
+    command: ChatInputCommandInteraction,
+    config: GuildData,
+    t: TFunction
+  ) {
     if (config.systems.twitch.enabled === true) {
       const embed = this.errorEmbed(
         command,
-        "Twitch Notifications are already enabled for this server!"
+        t("errors:system.status", {
+          system: t("words:system.twitch"),
+          status: t("words:word.enabled"),
+        })
       );
 
       return command.reply({
@@ -35,7 +43,14 @@ export = class TwitchEnableCommand extends SubCommand {
     config.systems.twitch.enabled = true;
     this.client.databases.guilds.set(command.guild.id, config);
 
-    const embed = this.embed(command, "Twitch Notifications enabled!", "✅");
+    const embed = this.embed(
+      command,
+      t("configuration:twitch.status.changed", {
+        status: t("words:word.enabled"),
+      }),
+      "✅"
+    );
+
     return command.reply({
       embeds: [embed],
     });

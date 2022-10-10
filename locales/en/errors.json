@@ -1,4 +1,8 @@
 {
   "forOwnerOnly": "This command is intended for bot owners!",
-  "localeNotFound": "Localization with code \"{{code}}\" is not marked as supported!"
+  "localeNotFound": "Localization with code \"{{code}}\" is not marked as supported!",
+  "alreadyInDatabase": "\"{{input}}\" is already in Database of this Guild!",
+  "notInDatabase": "\"{{input}}\" is not found in Database of this Guild!",
+
+  "system.status": "\"{{system}}\" System is already {{status}} in this Guild!"
 }

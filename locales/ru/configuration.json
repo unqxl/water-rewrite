@@ -25,5 +25,9 @@
   "muterole.already_in_list": "Роль {{role}} уже является автоматической!",
   "muterole.not_setted": "Сервер не имеет автоматически выдаваемой роли!",
   "muterole.added": "Роль {{role}} была успешно установлена автоматической!",
-  "muterole.removed": "Мут-Роль сервера была удалена из базы!"
+  "muterole.removed": "Мут-Роль сервера была удалена из базы!",
+
+  "twitch.status.changed": "Система Twitch Оповещений {{status}} для этого сервера!",
+  "twitch.streamer.added": "\"{{streamer}}\" был добавлен в список Twitch Оповещений!",
+  "twitch.streamer.removed": "\"{{streamer}}\" был удалён из списка Twitch Оповещений!"
 }

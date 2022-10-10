@@ -1,5 +1,8 @@
 {
   "word.none": "None",
+
   "word.enabled": "Enabled",
-  "word.disabled": "Disabled"
+  "word.disabled": "Disabled",
+
+  "system.twitch": "Twitch Notifications"
 }

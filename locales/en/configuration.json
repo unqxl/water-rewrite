@@ -25,5 +25,9 @@
   "muterole.already_in_list": "The {{role}} role is already set as automatic!",
   "muterole.not_setted": "The server does not have an automatically assigned role!",
   "muterole.added": "The {{role}} role has been successfully set as automatic.",
-  "muterole.removed": "The server's Mute-Role has been removed from Database!"
+  "muterole.removed": "The server's Mute-Role has been removed from Database!",
+
+  "twitch.status.changed": "Twitch Notifications System has been {{status}} for this Guild!",
+  "twitch.streamer.added": "\"{{streamer}}\" has been added into the list of Twitch Notifications System!",
+  "twitch.streamer.removed": "\"{{streamer}}\" has been removed from the list of Twitch Notifications System!"
 }

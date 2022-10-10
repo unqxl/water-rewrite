@@ -5,6 +5,7 @@ import {
   ApplicationCommandOptionType,
   ChatInputCommandInteraction,
 } from "discord.js";
+import { TFunction } from "i18next";
 
 export = class TwitchAddStreamerCommand extends SubCommand {
   constructor(client: Bot) {
@@ -37,13 +38,19 @@ export = class TwitchAddStreamerCommand extends SubCommand {
     });
   }
 
-  async run(command: ChatInputCommandInteraction, config: GuildData) {
+  async run(
+    command: ChatInputCommandInteraction,
+    config: GuildData,
+    t: TFunction
+  ) {
     const streamer = command.options.getString("streamer");
 
     if (config.systems.twitch.streamers.find((x) => x.name === streamer)) {
       const embed = this.errorEmbed(
         command,
-        `${streamer} is already in the list of Streamers to be notified!`
+        t("errors:alreadyInDatabase", {
+          input: streamer,
+        })
       );
 
       return command.reply({
@@ -55,7 +62,14 @@ export = class TwitchAddStreamerCommand extends SubCommand {
     config.systems.twitch.streamers.push({ name: streamer, last_stream: null });
     this.client.databases.guilds.set(command.guild.id, config);
 
-    const embed = this.embed(command, `"${streamer}" added to the list!`, "✅");
+    const embed = this.embed(
+      command,
+      t("configuration:twitch.streamer.added", {
+        streamer: streamer,
+      }),
+      "✅"
+    );
+
     return command.reply({
       embeds: [embed],
     });

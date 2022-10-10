@@ -5,6 +5,7 @@ import {
   ApplicationCommandOptionType,
   ChatInputCommandInteraction,
 } from "discord.js";
+import { TFunction } from "i18next";
 
 export = class TwitchRemoveStreamerCommand extends SubCommand {
   constructor(client: Bot) {
@@ -37,13 +38,19 @@ export = class TwitchRemoveStreamerCommand extends SubCommand {
     });
   }
 
-  async run(command: ChatInputCommandInteraction, config: GuildData) {
+  async run(
+    command: ChatInputCommandInteraction,
+    config: GuildData,
+    t: TFunction
+  ) {
     const streamer = command.options.getString("streamer");
 
     if (!config.systems.twitch.streamers.find((x) => x.name === streamer)) {
       const embed = this.errorEmbed(
         command,
-        `${streamer} is not in the list of Streamers to be notified!`
+        t("errors:notInDatabase", {
+          input: streamer,
+        })
       );
 
       return command.reply({
@@ -57,7 +64,9 @@ export = class TwitchRemoveStreamerCommand extends SubCommand {
 
     const embed = this.embed(
       command,
-      `"${streamer}" removed from the list!`,
+      t("configuration:twitch.streamer.removed", {
+        streamer: streamer,
+      }),
       "✅"
     );
 

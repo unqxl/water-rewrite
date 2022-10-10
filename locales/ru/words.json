@@ -1,5 +1,8 @@
 {
   "word.none": "Отсутствует",
+
   "word.enabled": "Включена",
-  "word.disabled": "Выключена"
+  "word.disabled": "Выключена",
+
+  "system.twitch": "Twitch Оповещений"
 }
